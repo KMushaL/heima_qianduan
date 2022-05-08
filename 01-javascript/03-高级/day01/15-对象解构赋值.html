@@ -1,0 +1,85 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 10:13:05
+ * @LastEditTime: 2022-05-01 10:22:43
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\6、对象解构赋值.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // **把属性名当做变量名即可，不过可以任意取，只要传递属性名即可**
+        // 找不到属性名，则为undefined
+
+        // let age = 19; // 不允许重复定义，解决方法：用冒号起别别名
+        let {
+            age,
+            index
+        } = (obj = {
+            uname: "张三丰",
+            age: 22,
+            sex: "男",
+            score: 99,
+            index: 6,
+        });
+        console.log(age, index);
+
+        // 把对象解开解构赋值给变量
+        // 即用冒号起别名
+        let {
+            uname: userName,
+            sex
+        } = {
+            uname: "张三丰",
+            age: 22,
+            sex: "男",
+            score: 99,
+            index: 6,
+        };
+        console.log(userName, sex);
+
+        // 多维解构赋值
+        let {
+            dog: {
+                uname: dogName
+            },
+        } = {
+            uname: "张三丰",
+            dog: {
+                uname: "小狗",
+                age: 1,
+            },
+            age: 22,
+            sex: "男",
+            score: 99,
+            index: 6,
+        };
+        console.log(dogName);
+
+        // 传递对象给函数
+        function person({
+            uname,
+            age,
+            sex
+        }) {
+            console.log(`我叫${uname}今年${age}岁是${sex}性`);
+        }
+
+        person({
+            uname: "阿良",
+            age: 22,
+            sex: "男",
+        });
+        // 同样允许初始化变量的默认值，属性不存在或单元值为 undefined 时默认值才会生效
+    </script>
+</body>
+
+</html>

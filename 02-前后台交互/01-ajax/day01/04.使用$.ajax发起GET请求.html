@@ -1,0 +1,48 @@
+<!--
+ * @Author: lei 602289550@qq.com
+ * @Date: 2022-05-06 17:12:42
+ * @LastEditors: lei 602289550@qq.com
+ * @LastEditTime: 2022-05-06 17:14:05
+ * @FilePath: \黑马前端学习\javascript\05-前后台交互\day01\04.使用$.ajax发起GET请求.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+  </head>
+
+  <body>
+    <button id="btnGET">发起GET请求</button>
+
+    <script>
+      // $.ajax()既可以发送get请求也可以发送post请求
+      // 语法：
+      // $.ajax({
+      //   type: "", // GET或POST
+      //   url: "", // 请求的url地址
+      //   data: {}, // 请求时携带的数据
+      //   success: function (res) {}, // 请求成功后的回调函数
+      // });
+
+      $(function () {
+        $("#btnGET").on("click", function () {
+          $.ajax({
+            type: "GET",
+            url: "http://www.liulongbin.top:3006/api/getbooks",
+            data: {
+              id: 1,
+            },
+            success: function (res) {
+              console.log(res);
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

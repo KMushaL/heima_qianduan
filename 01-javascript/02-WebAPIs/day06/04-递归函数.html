@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 10:59:05
+ * @LastEditTime: 2022-04-30 10:59:05
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day06\04-递归函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 递归函数 ： 自己调用自己就是递归函数
+        // 递归函数容易造成死递归，一定要加退出条件
+        let num = 0;
+
+        function fn() {
+            num++;
+            console.log(111);
+            // 在函数里面，调用自己
+            if (num >= 100) {
+                return;
+            }
+            fn();
+        }
+        fn();
+    </script>
+</body>
+
+</html>

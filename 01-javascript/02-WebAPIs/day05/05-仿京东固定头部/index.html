@@ -1,0 +1,107 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-29 21:07:34
+ * @LastEditTime: 2022-04-29 21:13:46
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day05\05-仿京东固定头部\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .content {
+            overflow: hidden;
+            width: 1000px;
+            height: 3000px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+        
+        .backtop {
+            display: none;
+            width: 50px;
+            left: 50%;
+            margin: 0 0 0 505px;
+            position: fixed;
+            bottom: 60px;
+            z-index: 100;
+        }
+        
+        .backtop a {
+            height: 50px;
+            width: 50px;
+            background: url(./images/bg2.png) 0 -600px no-repeat;
+            opacity: 0.35;
+            overflow: hidden;
+            display: block;
+            text-indent: -999em;
+            cursor: pointer;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: purple;
+            text-align: center;
+            color: #fff;
+            line-height: 80px;
+            font-size: 30px;
+            transition: all 0.3s;
+        }
+        
+        .sk {
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+            margin-top: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">我是顶部导航栏</div>
+    <div class="content">
+        <div class="sk">秒杀模块</div>
+    </div>
+    <div class="backtop">
+        <img src="./images/close2.png" alt="" />
+        <a href="javascript:;"></a>
+    </div>
+
+    <script>
+        let sk = document.querySelector(".sk"); // 秒杀模块元素
+        let header = document.querySelector(".header");
+
+        // 1. 页面滚动事件
+        window.addEventListener("scroll", function() {
+            // 要检测滚动的距离
+            console.log(document.documentElement.scrollTop);
+            console.log(sk.offsetTop);
+
+            // 2. 要检测滚动的距离 >= 秒杀模块的offsetTop(距离顶部的距离) 则滑入
+            // 也就是滑动到秒杀模块就出现导航栏
+            if (document.documentElement.scrollTop >= sk.offsetTop) {
+                header.style.top = "0px"; // 也可以写成0
+            } else {
+                header.style.top = "-80px"; // header的height为80px，所以修改为-80后自然就看不见了
+            }
+        });
+    </script>
+</body>
+
+</html>

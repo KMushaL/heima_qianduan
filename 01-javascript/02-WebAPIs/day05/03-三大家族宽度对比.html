@@ -1,0 +1,90 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-29 20:35:27
+ * @LastEditTime: 2022-04-29 22:50:17
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day05\03-三大家族宽度对比.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            height: 3000px;
+        }
+        
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+            overflow: auto;
+            padding: 10px;
+            border: 10px solid red;
+            margin: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦 我有很多很多的内容哦
+    </div>
+
+    <script>
+        // scroll内容
+        // 1.1 scrollWidth scrollHeight  '内容' 宽高 （了解）
+        let div = document.querySelector("div");
+        console.log(div.scrollWidth); // 153(不等于盒子高度) 不带单位
+        console.log(div.scrollHeight); // 394(不等于盒子高度) 不带单位
+
+        // 1.2 **获取元素往左、往上滚出去的看不到的距离
+        // scrollTop和scrollLeft
+        div.addEventListener("scroll", function() {
+            console.log("scrollTop: " + this.scrollTop);
+            console.log("scrollLeft: " + this.scrollLeft);
+        });
+
+        // 案例：检测页面滚动的距离
+        // console.log(document.documentElement); // 返回 'html' 元素(整个html文档)
+        // 先做页面滚动事件
+        window.addEventListener("scroll", function() {
+            // 再得到页面滚动的距离  scrollTop
+            console.log(document.documentElement.scrollTop);
+            // document.documentElement.scrollTop = 500; // 可以修改 但是不要带单位
+        });
+
+        // 2. **offset
+        // 2.1 盒子元素的大小 = '盒子本身的宽度和高度 + padding + border'**
+        // offsetWidth、offsetHeight
+        console.log(div.offsetWidth); // 190=150+10*2+10*2 不带单位
+        console.log(div.offsetHeight); // 190=150+10*2+10*2 不带单位
+
+        // 2.2 **获取距离自己最近的'定位父级'元素的左、上距离（若所有父级都没定位，则以文档左上角为准）
+        // 注意：offsetTop和offsetLeft为'只读'属性
+        console.log(div.offsetTop);
+        console.log(div.offsetLeft);
+
+        console.log("----------------------------");
+
+        // 3. client 当前'可视区域'，'不包含滚动条、边框等等'
+        // 3.1 元素可视区域的大小（随浏览器大小变化）
+        console.log(div.clientWidth); // 153
+        console.log(div.clientHeight); // 170
+        // 3.2 获取左'边框'和上'边框'(即border)宽度(只读属性)，用的极少
+        console.log(div.clientTop); // 边框的宽度  了解  呵呵
+        console.log(div.clientLeft);
+    </script>
+</body>
+
+</html>

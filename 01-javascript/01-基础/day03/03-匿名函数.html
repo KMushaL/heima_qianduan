@@ -1,0 +1,58 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 11:28:44
+ * @LastEditTime: 2022-04-28 11:58:03
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\基础\day03\03-匿名函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //函数没有名字，但会赋值给一个变量就是匿名函数
+        let fn = function(a, b) {
+            console.log("hello");
+            a = a || 0;
+            b = b || 0;
+            return a + b;
+        };
+        let res = fn(2); //调用与普通函数一样
+        console.log(res);
+
+        //立即执行函数：立即执行，无需调用
+        //相当于上面的匿名函数不赋值给变量，直接后面加个()执行
+        //为了区分，所以再给函数加一个括号包裹起来
+        res = (function(x, y) {
+            console.log("立即执行");
+            return x + y;
+        })(2, 3);
+        console.log(res);
+
+        //或将括号放里面（格式化后会自动放外面）
+        res = (function(x, y) {
+            console.log("立即执行2");
+            return x + y;
+        })(2, 3);
+        console.log(res);
+
+        //或也可以加名字
+        res = (function fn(x, y) {
+            console.log("立即执行3");
+            return x + y;
+        })(2, 3);
+        console.log(res);
+
+        //若存在多个立即执行函数，必须以分号作为结束符（格式化会自动加）
+    </script>
+</body>
+
+</html>

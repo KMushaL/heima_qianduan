@@ -1,0 +1,83 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 11:25:56
+ * @LastEditTime: 2022-05-01 13:33:47
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day02\6、String构造函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 字符串其实和数组很相似
+        // let str1 = new String("abcd");
+        // 推荐使用字面量方式声明字符串，而不是 `String` 构造函数
+        let str = "abcdefgabcd";
+
+        // 属性：length
+        console.log(str.length);
+        console.log(str[1]);
+        for (let i = 0; i < str.length; i++) {
+            console.log(str[i]);
+        }
+
+        // trim：用于去除字符串两端空白
+        str = "            abc        defgabcd       ";
+        console.log(str);
+        console.log(str.trim());
+
+        // split：分割字符串
+        str = "abcdefgabcd";
+        let re = str.split("c"); // 以c为分割
+        console.log(re); // ['ab', 'defgab', 'd']，c被删除了
+        re = str.split(""); // 可用于将字符串转为数组
+        console.log(re); // ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'c', 'd']
+
+        // toLowerCase：把字母转成小写
+        str = "abcdeFGabcd";
+        re = str.toLowerCase();
+        console.log(re);
+        // toUpperCase：把字母转成大写
+        re = str.toUpperCase();
+        console.log(re);
+
+        // indexOf：查找某个元素首次出现的索引值，找不到就是-1
+        str = "abcdefgabcd";
+        re = str.indexOf("a");
+        console.log(re);
+        // lastIndexOf：查找某个元素尾次出现的索引值，找不到就是-1
+        re = str.lastIndexOf("mm");
+        console.log(re); // -1
+
+        // slice：截取字符串
+        // 字符串.slice(start，end);从start索引值位置截取字符串'截取到end索引位置'
+        // 注意：如果只有一个参数，那么从这个索引值位置开始一直截取到最后
+        // 注意：end索引位置上的字符取不到
+        str = "abcdefgabcd";
+        re = str.slice(1, 4);
+        console.log(re); // bcd
+
+        // substring：截取字符串
+        // 字符串.substring(start，end)从start索引值位置截取字符串'截取到end索引位置'
+        // 注意：如果只有一个参数，那么从这个索引值位置开始一直截取到最后
+        // 注意：end索引位置上的字符取不到
+        re = str.substring(1, 4);
+        console.log(re); // bcd
+        re = str.substring(4, 1); // substring可以识别大小值
+        console.log(re); // bcd
+
+        // substr：截取字符串
+        // 字符串.substr(start, length)从start索引位置开始截取字符串，'截取length个'
+        re = str.substr(1, 4);
+        console.log(re); // bcde
+    </script>
+</body>
+
+</html>

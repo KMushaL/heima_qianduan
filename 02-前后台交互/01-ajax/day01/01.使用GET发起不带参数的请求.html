@@ -1,0 +1,48 @@
+<!--
+ * @Author: lei 602289550@qq.com
+ * @Date: 2022-05-06 16:45:34
+ * @LastEditors: lei 602289550@qq.com
+ * @LastEditTime: 2022-05-06 17:05:02
+ * @FilePath: \黑马前端学习\javascript\05-前后台交互\day01\01.使用GET发起不带参数的请求.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+  </head>
+
+  <body>
+    <button id="btnGET">发起不带参数的GET请求</button>
+
+    <script>
+      // Ajax 的全称是 Asynchronous Javascript And XML（异步 JavaScript 和 XML）。
+      // 通俗的理解：在网页中利用 XMLHttpRequest 对象和服务器进行'数据交互'的方式，就是Ajax。
+
+      // 方法：$.get(url, [请求时携带的参数], [请求成功后执行的回调函数])
+      // 参数为键值对类型，如{id: 1,...}
+      // 除了url，后面两个可选
+      $(function () {
+        $("#btnGET").on("click", () => {
+          $.get("http://www.liulongbin.top:3006/api/getbooks", function (res) {
+            console.log(res); // res 是服务器返回的数据
+            // res: {status: 200, msg: '获取图书列表成功', data: Array(1000)}
+
+            // 可在F12中网络中 Fetch/XHR 中查看ajax请求
+          });
+        });
+
+        /* $('#btnGET').on('click', function() {
+        $.get('http://www.liulongbin.top:3006/api/getbooks', function (res) {
+          console.log(res)
+          // 可在F12中网络中 Fetch/XHR 中查看ajax请求
+        })
+      }) */
+      });
+    </script>
+  </body>
+</html>

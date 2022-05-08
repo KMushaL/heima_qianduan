@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 
+      表单同步提交（通过点击 submit 按钮，触发表单提交的操作，从而使页面跳转到 action URL 的行为，叫做表单的同步提交。
+）的缺点：
+      <form>表单同步提交后，整个页面会发生跳转，跳转到 action URL 所指向的地址，用户体验很差。
+      <form>表单同步提交后，页面之前的状态和数据会丢失。
+    -->
+    <!-- 
+      解决方案：
+      表单只负责采集数据，Ajax 负责将数据提交到服务器（见下一节代码）
+     -->
+    <form action="/login">
+      <input type="text" name="user_name" />
+      <input type="password" name="password" />
+      <button type="submit">提交</button>
+    </form>
+  </body>
+</html>

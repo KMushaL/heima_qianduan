@@ -1,0 +1,44 @@
+<!--
+ * @Author: lei 602289550@qq.com
+ * @Date: 2022-05-06 17:01:08
+ * @LastEditors: lei 602289550@qq.com
+ * @LastEditTime: 2022-05-06 17:16:35
+ * @FilePath: \黑马前端学习\javascript\05-前后台交互\day01\03.使用POST提交数据.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+  </head>
+
+  <body>
+    <button id="btnPOST">发起POST请求</button>
+
+    <script>
+      // 使用方法与get相同
+      $(function () {
+        $("#btnPOST").on("click", function () {
+          $.post(
+            "http://www.liulongbin.top:3006/api/addbook",
+            {
+              bookname: "水浒传",
+              author: "施耐庵",
+              publisher: "天津图书出版社",
+            },
+            function (res) {
+              console.log(res);
+              // 请求成功
+
+              // 响应：{status: 502, msg: "不允许重复添加！！！"}
+            }
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

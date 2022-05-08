@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .pink {
+            background: pink;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 只有点击的变颜色，其他的不变 -->
+    <button>第1个</button><button>第2个</button><button>第3个</button
+    ><button>第4个</button><button>第5个</button>
+
+    <script>
+        let btns = document.querySelectorAll("button");
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                /* // 先干掉所有人
+                      for (let j = 0; j < btns.length; j++) {
+                          btns[j].classList.remove("pink");
+                      }
+                      // 再复活我自己
+                      this.classList.add("pink"); */
+
+                // 当然可以在for循环里面加一个判断，判断是不是自己
+
+                // 或者
+                // 我只需要找出那个唯一的 pink类，删除
+                document.querySelector(".pink").classList.remove("pink");
+                // 再给自己添加
+                this.classList.add("pink");
+            });
+        }
+    </script>
+</body>
+
+</html>

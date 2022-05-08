@@ -1,0 +1,37 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 14:42:41
+ * @LastEditTime: 2022-04-30 14:48:17
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day06\16-自定义属性.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 自定义属性 -->
+    <div class="box" data-index="0" data-name="andy"></div>
+
+    <script>
+        let box = document.querySelector(".box");
+
+        // 设置自定义属性
+        // box.setAttribute("myid", 10);
+        // console.log(box.getAttribute("myid"));
+
+        // h5中推出了专门的data-自定义属性，即一律以data-开头
+        // 且一律以dataset对象方式获取
+        console.log(box.dataset); // DOMStringMap {index: '0', name: 'andy'}
+        console.log(box.dataset.index); // 0
+    </script>
+</body>
+
+</html>

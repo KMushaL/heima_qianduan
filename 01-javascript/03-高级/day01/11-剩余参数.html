@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 22:32:22
+ * @LastEditTime: 2022-04-30 22:36:12
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\18、剩余参数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 剩余参数：必须置于'最末'函数形参之前，用于获取多余的实参
+        // 借助 ... 获取剩余的实参
+
+        function fun(a, b, ...c) {
+            console.log(a, b, c); // a=1,b=2,c=[3,4,5,6]
+        }
+        fun(1, 2, 3, 4, 5, 6);
+
+        function getSum(...a) {
+            let sum = 0;
+            // a = [1, 2, 3, 4, 5, 6]
+            for (let i = 0; i < a.length; i++) {
+                sum = sum + a[i];
+            }
+            console.log(sum);
+        }
+        getSum(1, 2, 3, 4, 5, 6);
+    </script>
+</body>
+
+</html>

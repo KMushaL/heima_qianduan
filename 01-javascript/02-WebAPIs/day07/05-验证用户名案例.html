@@ -1,0 +1,60 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 15:43:33
+ * @LastEditTime: 2022-04-30 15:56:20
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day07\05-验证用户名案例.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 250px;
+            height: 30px;
+            vertical-align: middle;
+            line-height: 30px;
+            padding-left: 15px;
+        }
+        
+        .error {
+            color: red;
+            background: url(./error1.png) no-repeat left center;
+        }
+        
+        .right {
+            color: green;
+            background: url(./right.png) no-repeat left center;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" />
+    <span></span>
+
+    <script>
+        let input = document.querySelector("input");
+        let span = input.nextElementSibling; // nextElementSibling代表下一个兄弟元素
+
+        input.addEventListener("blur", function() {
+            if (/^[a-zA-Z0-9-_]{6,16}$/.test(input.value)) {
+                span.className = "right";
+                span.innerHTML = "输入正确";
+            } else {
+                span.className = "error";
+                span.innerHTML =
+                    "必须以a-z或A-Z或0-9或-_开头和结尾，且长度要>=6，<=16";
+            }
+        });
+    </script>
+</body>
+
+</html>

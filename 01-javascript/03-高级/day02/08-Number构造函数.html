@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 11:25:56
+ * @LastEditTime: 2022-05-01 13:37:07
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day02\08-Number构造函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let num = 66;
+        // let num = new Number(66);
+        console.log(num instanceof Number);
+
+        // 方法 ：
+        // toFixed(number)：用于保留几位有效数字，会四舍五入
+        let price = 66.36875123;
+        price = price.toFixed(3);
+        console.log(price);
+
+        // parseInt、parFloat
+        num = 66.123;
+        console.log(parseInt(num));
+        console.log(Number.parseInt(num)); // 66
+        console.log(Number.parseFloat(num)); // 66.123
+
+        //   推荐使用字面量方式声明数值，而不是 `Number` 构造函数
+    </script>
+</body>
+
+</html>

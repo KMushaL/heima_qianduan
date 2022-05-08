@@ -1,0 +1,78 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 16:40:27
+ * @LastEditTime: 2022-05-01 16:40:27
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day04\11、class创建对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // ES6增加了定义类（本质就是构造函数的封装）
+        // class 类名 {}
+        class Person {
+            // 静态成员
+            static language = "汉语";
+            static skin = "yellow";
+
+            // 类中的方法不要加function
+            static eat() {
+                console.log("静态方法eat");
+            }
+
+            static he() {
+                console.log("静态方法he");
+            }
+
+            // 实例成员
+            sex = "男";
+
+            say() {
+                console.log("实例方法say");
+            }
+            hi() {
+                console.log("实例方法hi");
+            }
+
+            // 自定义构造函数(也叫构造方法、构造器)
+            // 实例化时 立即执行
+            // 可以不写，若不写会帮我们创建默认的 构造方法
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+
+        // 静态属性和方法直接访问
+        console.log(Person.language, Person.eat);
+        Person.eat();
+
+        // 实例化类
+        let re1 = new Person();
+        console.log(re1);
+        console.log(re1.name); // undefined
+        console.log(re1.sex);
+        re1.say();
+
+        let re2 = new Person("张三丰", 22);
+        console.log(re2);
+        console.log(re2.name); // 张三丰
+        console.log(re2.sex);
+
+        // 类的本质就是构造函数
+        console.log(Person.prototype);
+        // console.log(re1.prototype); // undefined，与构造函数创建对象一样，实例化对象无prototype这个属性
+        console.log(typeof Person); // function
+        console.log(re1.__proto__ === Person.prototype); // true
+    </script>
+</body>
+
+</html>

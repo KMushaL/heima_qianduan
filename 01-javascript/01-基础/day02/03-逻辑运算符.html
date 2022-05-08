@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //短路机制，只要通过左边能得到式子的结果就不会再判断右边
+        console.log(false && 3); //false
+        console.log(false || 3); //3
+
+        console.log(undefined && 20); //undefined
+        console.log(undefined || 20); //20
+
+        console.log(null && 20); //null，null和undefi都被认为是false
+        console.log(null || 20); //20，null和undefi都被认为是false
+
+        console.log(0 && 20); //0，0为false
+        console.log(0 || 20); //20，0为false
+
+        console.log(10 && 20); //20，10为true
+        console.log(10 || 20); //10，10为true
+
+        console.log(undefined || 0); //0
+
+        console.log("" || 0); //0，''为false
+        console.log("" && 0); //''，''为false
+
+        //可用于变量赋值
+        let num = prompt("请输入一个数");
+        num = num || 0; //防止用户没输入任何值（即num为''），赋值为0
+        console.log(num);
+
+        //优先级：先&&后||
+    </script>
+</body>
+
+</html>

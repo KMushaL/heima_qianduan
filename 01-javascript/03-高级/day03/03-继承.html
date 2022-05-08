@@ -1,0 +1,92 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 14:47:39
+ * @LastEditTime: 2022-05-01 14:58:40
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day03\18、继承1.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 定义(原型)对象：（存储公共属性和方法）
+        let obj = {
+            head: 1,
+            eyes: 2,
+            legs: 2,
+            say: function() {
+                console.log("chi");
+            },
+            eat: function() {
+                console.log("he");
+            },
+        };
+
+        function Chinese() {
+            this.skin = "yellow";
+            this.language = "汉语";
+        }
+
+        console.log(Chinese.prototype);
+        /* Object
+          constructor: ƒ Chinese()
+          [[Prototype]]: Object */
+
+        // 先将定义的(原型)对象赋值给Chinese的原型对象
+        // 为什么这么做，因为实例化对象只要在构造函数中找不到想要的属性和方法，就回去原型对象中找
+        // 而原型对象存储了公共的属性和方法，所以自然形成了继承关系
+        Chinese.prototype = obj;
+
+        // 因为obj把原有的prototype覆盖了，而obj又无constructor，
+        // 所以需要再为原型对象创建constructor属性，并为其赋值，即指回构造函数
+        Chinese.prototype.constructor = Chinese;
+        console.log(Chinese.prototype);
+        /* {head: 1, eyes: 2, legs: 2, say: ƒ, eat: ƒ, …}
+          constructor: ƒ Japanese()
+          eat: ƒ ()
+          eyes: 2
+          head: 1
+          legs: 2
+          say: ƒ ()
+          [[Prototype]]: Object */
+
+        // 实例化
+        let c1 = new Chinese();
+        console.log(c1);
+        /* Chinese {skin: 'yellow', language: '汉语'}
+          language: "汉语"
+          skin: "yellow"
+          [[Prototype]]: Object
+                  constructor: ƒ Japanese()
+                  eat: ƒ ()
+                  eyes: 2
+                  head: 1
+                  legs: 2
+                  say: ƒ ()
+                  [[Prototype]]: Object */
+        c1.eat();
+
+        // 第二个继承
+        function Japanese() {
+            this.skin = "yellow";
+            this.language = "日语";
+        }
+
+        Japanese.prototype = obj;
+        Japanese.prototype.constructor = Japanese;
+
+        // 实例化
+        let j1 = new Japanese();
+        console.log(j1.head); // 1
+        j1.eat();
+    </script>
+</body>
+
+</html>

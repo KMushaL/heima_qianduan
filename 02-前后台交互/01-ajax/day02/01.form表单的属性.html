@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- action为表单数据提交的url地址，默认值为当前页面url地址 -->
+    <!-- 提交后，页面会跳转到 action指定的url地址-->
+    <!-- target指定在何处打开action的url，包括新窗口打开(_blank)、默认在相同框架中打开(_self)等 -->
+    <!-- post方式提交的数据在form data中 -->
+    <!-- 
+      enctype属性规定发送表单数据之前如何对数据进行编码，默认值为在发送前编码所有字符 
+      涉及到'文件上传'时，必须设置为multipart/form-data
+      所以只要不涉及文件上传，不指定即可
+    -->
+    <form action="/login" target="_blank" method="post">
+      <input type="text" name="email_or_mobile" />
+      <input type="password" name="password" />
+      <button type="submit">提交</button>
+    </form>
+    <!-- 
+      get只适合用于提交简单、少量的数据，用的极少
+      post适合用于提交大量的、复杂的或包含‘文件上传’的数据
+    -->
+  </body>
+</html>

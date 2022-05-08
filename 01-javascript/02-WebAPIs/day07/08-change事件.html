@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 16:08:48
+ * @LastEditTime: 2022-04-30 18:58:38
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day07\07-change事件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        input[type="text"] {
+            /* background-color: red; */
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" />
+
+    <script>
+        let input = document.querySelector("input");
+
+        // 当表单里面的'值发生变化'且'离开'的时候触发，和 blur 不一样(只要离开就触发)
+        // input 事件：'只要输入'就会触发
+        // change 事件：'离开'表单(类似于blur)时候才触发，并且值有变化
+        input.addEventListener("change", function() {
+            console.log(111);
+        });
+    </script>
+</body>
+
+</html>

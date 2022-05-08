@@ -1,0 +1,58 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 16:57:46
+ * @LastEditTime: 2022-05-01 16:57:46
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day04\22、浅拷贝.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 浅拷贝：只拷贝'外面一层'的
+        let obj = {
+            uname: "张三丰",
+            age: 22,
+            sex: "男",
+            color: ["red", "blue", "yellow", "pink"],
+            num: [
+                [1, 2]
+            ],
+            message: {
+                score: 99,
+                index: 6,
+            },
+        };
+
+        let newObj = {};
+
+        // 方法：assign(目标, 源)
+        Object.assign(newObj, obj);
+        obj.age = 23; // 不会改变newObj
+        obj.color = ["red"]; // 改变一维数组不会改变newObj
+        obj.num = [
+            [3]
+        ]; // 改变高维数组也不会改变newObj
+        obj.message.index = 666; // 会改变newObj
+        console.log(obj, newObj);
+
+        // 其他方法：遍历
+        // for (let key in obj) {
+        //     newObj[key] = obj[key];
+        // }
+        // obj.age = 23; // 不会改变newObj
+        // obj.color = ["red"]; // 改变一维数组不会改变newObj
+        // obj.num = [3]; // 改变高维数组也不会改变newObj
+        // obj.message.index = 666; // 会改变newObj
+        // console.log(obj, newObj);
+    </script>
+</body>
+
+</html>

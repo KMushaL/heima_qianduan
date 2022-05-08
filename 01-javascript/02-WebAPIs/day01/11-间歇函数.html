@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 16:01:10
+ * @LastEditTime: 2022-04-28 16:03:38
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day01-dom\11-间歇函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 开启定时器，函数不需要加()，间隔时间单位为毫秒
+        // setInterval(函数, 间隔时间);
+
+        function show() {
+            console.log("abc");
+        }
+        // 返回值为计时器id
+        let timer = setInterval(show, 1000); // 每隔1s调用一次
+        let timer1 = setInterval(show, 1000); // 每隔1s调用一次
+        console.log(timer); // 1
+        console.log(timer1); // 2
+
+        // 关闭定时器
+        // clearInterval(timer);
+        clearInterval(timer1);
+    </script>
+</body>
+
+</html>

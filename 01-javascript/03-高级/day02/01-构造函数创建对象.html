@@ -1,0 +1,134 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 10:26:00
+ * @LastEditTime: 2022-05-01 11:03:41
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day02\9、构造函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 这种方式声明的对象称为【字面量】
+        let student = {
+            name: "杜子腾",
+            age: 21,
+        };
+        // 获取构造函数本身，即由谁构造而来，字面量方式默认也为Object
+        console.log(student.constructor); // ƒ Object() { [native code] }
+        // instanceof：判断对象是否是一个构造函数的实例对象
+        console.log(student instanceof Object); // true
+
+        // 构造函数：其实也是函数，
+        // 只不过构造函数一般用于和new搭配使用，创建对象
+
+        // 内置构造函数：Object，用于创建对象
+        let obj = new Object(); // obj就是对象
+        console.log(obj);
+        // 添加属性和方法
+        obj.uname = "阿飞";
+        obj.age = 22;
+        obj.fei = function() {
+            console.log("方法");
+        };
+        obj.chi = function() {
+            console.log("吃");
+        };
+        console.log(obj);
+        obj.chi();
+
+        // 初始化时给构造函数传递对象（属性和方法）
+        let obj2 = new Object({
+            uname: "张三丰",
+            age: 22,
+            sex: "男",
+        });
+        console.log(obj2);
+
+        // 注意：如果构造函数不需要参数，那么可以省略小括号
+        let obj3 = new Object();
+
+        // 对象语法简写
+        let name = "小红";
+        let people = {
+            // 相当于 name: name
+            name,
+            // 相当于 walk: function () {}
+            walk() {
+                console.log("人都要走路...");
+            },
+        };
+        console.log(people);
+
+        // 普通对象数据保存在堆内存之中，栈内存中保存了普通对象在堆内存的地址。
+        // 所以普通对象赋值后，无论修改哪个变量数据另一个对象的数据值也会相当发生改变。
+        let obj4_1 = {
+            uname: "阿飞",
+            age: 22,
+            sex: "男",
+        };
+        let obj4_2 = obj4_1;
+        obj4_1.uname = "二柱子";
+        console.log(obj4_1, obj4_2); // obj4_2的uname也改变了
+
+        let o = {
+            uname: "张三丰",
+            age: 22,
+            sex: "男",
+        };
+
+        function fun(obj) {
+            obj.uname = "李寻欢";
+        }
+        fun(o);
+        console.log(o); // o.uname = "李寻欢";
+
+        // - 推荐使用字面量方式声明对象，而不是 `Object` 构造函数
+        // - `Object.assign` ：Object的静态方法，用于创建新的对象
+        let obj5 = Object.assign({
+            uname: "张三丰",
+            age: 22,
+            sex: "男",
+        });
+        console.log(obj5);
+        console.log(obj5.age);
+
+        // Object.assign() 方法还可用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+        // Object.assign(target, ...sources)    【target：目标对象】，【souce：源对象（可多个）】
+        const object1 = {
+            a: 1,
+            b: 2,
+            c: 3,
+        };
+        const object2 = Object.assign({
+                c: 4,
+                d: 5,
+            },
+            object1
+        );
+
+        console.log(object2.c, object2.d); // 3， 5
+        console.log(object1); // { a: 1, b: 2, c: 3 }
+        console.log(object2); // { c: 3, d: 5, a: 1, b: 2 }
+        // 注意：
+        // 1.如果目标对象中的属性具有相同的键，则属性将被源对象中的属性覆盖。后面的源对象的属性将类似地覆盖前面的源对象的属性
+        // 2.Object.assign 方法只会拷贝源对象自身的并且可枚举的属性到目标对象。该方法使用源对象的[[Get]]和目标
+        // 对象的[[Set]]，所以它会调用相关 getter 和 setter。因此，它分配属性，而不仅仅是复制或定义新的属性。如果
+        // 合并源包含getter，这可能使其不适合将新属性合并到原型中。为了将属性定义（包括其可枚举性）复制到原型，
+        // 应使用Object.getOwnPropertyDescriptor()和Object.defineProperty() 。
+
+        // - `Object.keys` ：Object的静态方法，用于获取对象中所有属性
+        console.log(Object.keys(obj5));
+        // - `Object.values` ：Object的静态方法，用于获取对象中所有属性值
+        console.log(Object.values(obj5));
+    </script>
+</body>
+
+</html>

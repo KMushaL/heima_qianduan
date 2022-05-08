@@ -1,0 +1,72 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 20:01:15
+ * @LastEditTime: 2022-04-30 20:01:15
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\6、定义变量.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // var声明的变量不具有块级作用域、let具有块级作用域
+        // var声明变量，可以重新定义声明的，let不可以
+        // var声明的变量，相当于window添加属性，let直接就是变量
+        // var和let都可以只定义不赋值
+        // 变量提升：后面讲解
+
+        // const：const声明的变量为常量不准改变
+        // 其他的和let没区别
+        // const定义的常量'必须初始化'赋值
+        // 建议：
+        // 1、常量名'都用大写，纯大写'
+        // 2、一般固定不变不的值使用常量
+        const PI = 3.14;
+        console.log(PI);
+
+        // let 、var、const
+
+        // var：
+        {
+            var n = 3;
+        }
+        console.log(n);
+
+        var n = 2;
+        var n = 3;
+        console.log(n);
+
+        console.log(window);
+        console.log(window.n); // 3
+
+        // 一个变量只定义不赋值就是undefined
+        var n;
+        console.log(n);
+
+        // let：
+        // {
+        // 	let n = 3;
+        // }
+        // {
+        // 	let n = 2; // 可以定义
+        // }
+        // console.log(n); // 出错
+
+        // let n = 2;
+        // let n = 3; // 出错
+
+        // console.log(window);
+
+        // let n;
+        // console.log(n);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 11:19:38
+ * @LastEditTime: 2022-04-30 11:34:57
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day06\07-location对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="target.html">
+        <input type="text" name="username" /><br />
+        <input type="password" name="password" /><br />
+        <button>提交</button>
+    </form>
+
+    <br />
+
+    <!-- 点击后页面不会刷新 -->
+    <a href="#one">第一个</a>
+    <!-- 点击后页面不会刷新 -->
+    <a href="#two">第二个</a>
+
+    <br />
+
+    <button>刷新</button>
+
+    <script>
+        // window.location
+        console.log(location.href); // 得到'完整的' url地址   可读写
+        // 给的地址是字符串  可以利用js 的方式跳转页面
+        // location.href = "http://www.itcast.cn"; // '自动'跳转页面
+
+        // location其他属性：
+        // search：获取地址中携带的参数，即?后面的部分(见target.html)
+
+        // hash：获取地址中的哈希值，即#后面的部分
+        //      后期vue路由的铺垫，经常用于不刷新页面，显示不同页面(具体实例可见网易云音乐web端官网)
+        console.log(location.hash); // #one，#two
+
+        // location方法：
+        // reload：传入参数true时，强制刷新页面
+        let btn = document.querySelector("button");
+        btn.addEventListener("click", function() {
+            // reload() '有本地缓存'
+            // 强制刷新 ctrl + f5 直接更新'最新'内容从网上拉去，不走本地缓存
+            location.reload(true);
+        });
+    </script>
+</body>
+
+</html>

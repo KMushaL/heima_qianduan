@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function abc(data) {
+        console.log("JSONP响应回来的数据是：");
+        console.log(data);
+      }
+    </script>
+
+    <!-- JSONP 只支持 GET 数据请求(默认)，不支持 POST 请求 -->
+    <!-- jsonp并未发起ajax请求 -->
+    <!-- 注意：JSONP 和 Ajax 之间没有任何关系，不能把 JSONP 请求数据的方式叫做 Ajax，因为 JSONP 没有用到 XMLHttpRequest 这个对象 -->
+    <script src="http://ajax.frontend.itheima.net:3006/api/jsonp?callback=abc&name=ls&age=30"></script>
+  </body>
+</html>

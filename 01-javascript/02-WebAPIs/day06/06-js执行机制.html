@@ -1,0 +1,51 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 11:07:58
+ * @LastEditTime: 2022-04-30 11:18:39
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day06\06-js执行机制.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 先执行同步任务（初始就在执行栈中），
+        // 再依次读取任务队列异步任务（如有回调函数的任务）放入执行栈中，开始执行
+        // 以上过程称为事件循环(event loop)(读取，执行；读取，执行；....)
+
+        // 异步任务推入任务队列过程：
+        // 多个异步任务存在时会由异步API来处理，比如存在一个定时器和一个点击事件，点击事件一直未触发，就会先将定时器任务推入任务队列
+
+        // 所以js执行机制是三者共同构成的
+
+        // console.log(1)
+        // setTimeout(function () {
+        //     console.log(2)
+        // }, 0)
+        // console.log(3)
+        // 输出：1，3，2
+
+        console.log(1);
+
+        document.addEventListener("click", function() {
+            console.log(4);
+        });
+
+        console.log(2);
+
+        setTimeout(function() {
+            console.log(3);
+        }, 3000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 16:00:28
+ * @LastEditTime: 2022-04-30 16:07:18
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day07\06-修饰符.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 修饰符用于约束正则执行的某些细节行为，如是否区分大小写、是否支持多行匹配等
+        // 语法：/表达式/修饰符
+        // 常见修饰符：
+        // i：ignore，正则匹配时字母不区分大小写
+        // g：global，匹配所有满足正则表达式得结果(因为默认只匹配'第一个'字符，见过滤敏感词案例)
+
+        console.log(/a/i.test("a")); // true
+        console.log(/a/i.test("A")); // true
+
+        // 替换：replace
+        // 语法：字符串.replace(正则表达式, 要替换的字符串)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-29 20:25:50
+ * @LastEditTime: 2022-04-29 20:32:27
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day05\02-加载事件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+        
+        div {
+            overflow: auto;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+
+    <!-- 有些老代码会把script代码写在这个位置 -->
+    <script>
+        window.addEventListener("load", function() {
+            // 若不是"load"则就无法获取div元素，只有等window的所有资源加载完才能获取，所以此时就需要加载事件
+            let div = document.querySelector("div");
+            console.log(div);
+        });
+        // DOMContentLoaded事件：只要加载完初始的HTML文档就运行，而不用等样式表、图片等大资源加载完毕
+    </script>
+</head>
+
+<body>
+    <div>
+        我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字
+    </div>
+    <script>
+        // let div = document.querySelector('div')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son1">儿子1</div>
+        <div class="son2">儿子2</div>
+        <div class="son3">儿子3</div>
+        <div class="son4">儿子4</div>
+    </div>
+
+    <script>
+        let son1 = document.querySelector(".son1");
+        // 1. parentNode找最近的父节点
+        console.log(son1.parentNode);
+        // son1.parentNode.style.display = "none";
+
+        let fa = document.querySelector(".father");
+        // 2. childNodes获得所有子节点，包括文本节点（空格、换行）、注释节点等
+        // childer仅获得所有'元素'节点，返回的是伪数组
+        console.log(fa.children);
+        // console.log(fa.childNodes);
+
+        // 3. nextElementSibling获得下一个兄弟节点
+        let son2 = document.querySelector(".son2");
+        console.log(son2.nextElementSibling);
+        son2.nextElementSibling.style.color = "red";
+
+        // 4. previousElementSibling获得下一个兄弟节点
+        console.log(son2.previousElementSibling);
+        console.log(son1.previousElementSibling); // null
+    </script>
+</body>
+
+</html>

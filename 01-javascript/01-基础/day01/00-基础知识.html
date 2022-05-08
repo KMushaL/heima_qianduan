@@ -1,0 +1,62 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-27 16:31:36
+ * @LastEditTime: 2022-04-28 11:17:38
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\基础\00-基础知识.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 内联js -->
+    <button onclick="alert('月薪过万')">点击我</button>
+    <!-- 外部js -->
+    <!-- <script src="./my.js">
+        // alert(11) //此处不能写js代码
+    </script> -->
+
+    <!-- 内部js：可以写多个script标签 -->
+    <script>
+        //一、输入与输出
+        // 1.document 文档的意思    write 写
+        document.write("我愿意");
+        document.write("<h1>我愿意</h1>"); //可以写html语言
+        // 2. alert 警示
+        // alert('黑马')
+        // 3. 控制台输出语法  程序员看的
+        console.log("我是用来测试的");
+        // 4. 输入语句 prompt
+        prompt("您今年多大了？");
+
+        //二、let和var区别，以后都用let
+        // var可以先赋值再声明（不合理），而let不可以
+        /* age = 19
+                        var age
+                        console.log(age) */
+        /* age = 19
+                        let age
+                        console.log(age) */
+
+        //var可以声明多次（不合理），let不允许
+        /* var age = 18
+                        var age = 19
+                        console.log(age) */
+        /* var age = 10
+                        let age = 20
+                        document.write(age)
+                        console.log(age) */
+    </script>
+
+    <script></script>
+</body>
+
+</html>

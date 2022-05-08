@@ -1,0 +1,72 @@
+<!--
+ * @Author: lei 602289550@qq.com
+ * @Date: 2022-05-07 20:07:14
+ * @LastEditors: lei 602289550@qq.com
+ * @LastEditTime: 2022-05-07 23:18:37
+ * @FilePath: \黑马前端学习\02-前后台交互\01-ajax\day03\14.使用jQuery实现文件上传.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+  </head>
+
+  <body>
+    <input type="file" id="file1" />
+    <button id="btnUpload">上传文件</button>
+
+    <br />
+    <img src="./images/loading.gif" alt="" style="display: none" id="loading" />
+
+    <script>
+      $(function () {
+        // Ajax 请求开始时，执行 ajaxStart 函数。可以在 ajaxStart 的 callback 中显示 loading 效果
+        // $(document).ajaxStart() 函数会监听当前文档内所有的 Ajax 请求
+        // 自 jQuery 版本 1.8 起，该方法只能被附加到document
+        $(document).ajaxStart(function () {
+          $("#loading").show();
+        });
+
+        // Ajax 请求结束时，执行 ajaxStop 函数。可以在 ajaxStop 的 callback 中隐藏 loading 效果
+        // 自 jQuery 版本 1.8 起，该方法只能被附加到document
+        $(document).ajaxStop(function () {
+          $("#loading").hide();
+        });
+
+        $("#btnUpload").on("click", function () {
+          // 1. 将 jQuery 对象转化为 DOM 对象，并获取选中的文件列表
+          var files = $("#file1")[0].files;
+          // 2. 判断是否选择了文件
+          if (files.length <= 0) {
+            return alert("请选择文件后再上传！");
+          }
+
+          // 向 FormData 中追加文件
+          var fd = new FormData();
+          fd.append("avatar", files[0]);
+
+          // 发起 jQuery 的 Ajax 请求，上传文件
+          $.ajax({
+            method: "POST",
+            url: "http://www.liulongbin.top:3006/api/upload/avatar",
+            data: fd,
+            // 固定写法：
+            // contentType: false代表不修改 Content-Type 属性，使用 FormData 默认的 Content-Type 值
+            contentType: false,
+            // processData: false代表不对 FormData 中的数据进行 url 编码，而是将 FormData 数据原样发送到服务器
+            processData: false,
+            success: function (res) {
+              console.log(res);
+              // url为相对路径
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

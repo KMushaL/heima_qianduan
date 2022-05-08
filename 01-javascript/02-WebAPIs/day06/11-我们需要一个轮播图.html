@@ -1,0 +1,216 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 11:48:38
+ * @LastEditTime: 2022-04-30 12:09:53
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day06\14-我们需要一个轮播图.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+    <style>
+        .box {
+            width: 600px;
+            height: 350px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+        
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+        /* 下面三部分的代码为swiper案例中的源代码 */
+        
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        /* swiper盒子 */
+        
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 350px;
+        }
+        /* 修改小圆点样式 */
+        
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+        }
+        /* 修改点中小圆点后的样式 */
+        
+        .swiper-pagination-bullet-active {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 第一个轮播图 -->
+    <div class="box">
+        <!-- Swiper demo中的源代码 -->
+        <div class="swiper-container one">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/b_01.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/b_02.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/b_03.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/b_04.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/b_05.jpg" alt="" />
+                    </a>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+    <!-- 第二个轮播图 -->
+    <div class="box">
+        <!-- Swiper -->
+        <div class="swiper-container two">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/b_01.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/b_02.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/b_03.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/b_04.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/b_05.jpg" alt="" />
+                    </a>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+    <script src="./js/swiper-bundle.min.js"></script>
+
+    <!-- 要放到引入插件的下面 -->
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".one", {
+            slidesPerView: 1,
+            autoplay: {
+                //自动切换
+                delay: 3000, // 切换时间
+                stopOnLastSlide: false, // 到达最后一个轮播图时是否停止切换
+                disableOnInteraction: true, // 手动操作轮播图时，是否禁止autoplay
+            },
+            spaceBetween: 0, // 切换的过渡
+            loop: true, // 可循环切换
+            pagination: {
+                // 底部小圆点
+                el: ".swiper-pagination",
+                clickable: true, // 是否可点击
+            },
+            navigation: {
+                // 下一个和上一个按钮
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            keyboard: true,
+        });
+        // 多个轮播图
+        var swiper = new Swiper(".two", {
+            slidesPerView: 1,
+            autoplay: {
+                delay: 5000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            },
+            spaceBetween: 0,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            keyboard: true, // 是否使用键盘(左右键)控制切换
+        });
+    </script>
+</body>
+
+</html>

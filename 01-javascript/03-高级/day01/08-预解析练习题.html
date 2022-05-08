@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 20:49:46
+ * @LastEditTime: 2022-04-30 20:49:47
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\15、预解析练习题.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        console.log(n); // undefined
+        fn();
+        var n = 3; // 此n被预解析到全局作用域中
+
+        // 只定义不调用，所以n没有被赋值，而且n为局部变量
+        function fn() {
+            console.log(n); // undefined
+            var n = 6; // 此n被预解析到该局部作用域中
+        }
+
+        console.log("---------------------");
+
+        console.log(a); // function a() {}，函数优先预解析，与谁先声明无关
+
+        var a = 2; // 预解析到全局作用域中
+        function a() {} // 预解析到全局作用域中
+        console.log(a); // 2，a被替换了
+    </script>
+</body>
+
+</html>

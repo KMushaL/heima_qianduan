@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 数据交换格式，就是服务器端与客户端之间进行数据传输与交换的格式
+      // 前端领域，经常提及的两种数据交换格式分别是 XML 和 JSON。其中 XML 用的非常少，
+      // 所以，我们重点要学习的数据交换格式就是 JSON
+
+      // JSON 的英文全称是 JavaScript Object Notation，即“JavaScript 对象表示法”。
+      // 简单来讲，JSON 就是 Javascript '对象和数组'的'字符串表示法'，它使用文本'表示一个 JS 对象或数组的信息'，
+      // **因此，JSON 的本质是字符串**
+
+      // 因为 JSON 就是用字符串来表示 Javascript 的对象和数组
+      // 所以，JSON 中包含对象（用{}来表示）和数组（用[]来表示）两种结构，通过这两种结构的相互嵌套，可以表示各种复杂的数据结构
+
+      // json注意事项：
+      // '属性名'必须使用"双"引号包裹
+      // 字符串类型的'值'必须使用"双"引号包裹
+      // JSON 中'不允许使用单引号表示字符串'
+      // JSON 中不能写注释
+      // JSON 的最外层必须是对象或数组格式
+      // 不能使用 undefined 或函数作为 JSON 的值，可以使用null(null不用加引号)
+
+      // key 必须是使用英文的双引号包裹的字符串，
+      // value 的数据类型可以是数字、字符串、布尔值、null、数组、对象6种类型
+
+      var jsonStr = '{"a": "Hello", "b": "world"}';
+      var obj = JSON.parse(jsonStr); // 转化为js对象(json反序列化)
+      console.log(obj);
+
+      var obj2 = { a: "hello", b: "world", c: false };
+      // 注意不是console.log(obj2[a]);
+      console.log(obj2["a"]);
+      var str = JSON.stringify(obj2); // 转化为json字符串(json序列化)
+      console.log(str);
+      console.log(typeof str);
+    </script>
+  </body>
+</html>

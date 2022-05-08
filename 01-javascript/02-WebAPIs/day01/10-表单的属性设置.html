@@ -1,0 +1,48 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 15:25:39
+ * @LastEditTime: 2022-04-28 15:34:06
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day01-dom\11-表单的属性设置.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="请输入" />
+
+    <button disabled>按钮</button>
+    <!-- disabled不可点 -->
+
+    <input type="checkbox" name="" id="" class="agree" />
+
+    <script>
+        // 1. 获取元素
+        let input = document.querySelector("input");
+
+        // 2. 取值或者设置值  得到input里面的值可以用 value
+        // console.log(input.value)
+        input.value = "小米手机";
+        // input.type = "password";
+
+        // 2. 启用按钮
+        let btn = document.querySelector("button");
+        // disabled 不可用 = false  这样可以让按钮启用
+        btn.disabled = false;
+        // btn.disabled = true; // 无法点击按钮
+
+        // 3. 勾选复选框
+        let checkbox = document.querySelector(".agree");
+        checkbox.checked = true; // 选中
+    </script>
+</body>
+
+</html>

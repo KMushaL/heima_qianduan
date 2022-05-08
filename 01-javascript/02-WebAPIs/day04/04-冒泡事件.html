@@ -1,0 +1,80 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-29 15:47:53
+ * @LastEditTime: 2022-04-29 15:47:53
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day04\05-冒泡事件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .father {
+            margin: 100px auto;
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+        }
+        
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        let fa = document.querySelector(".father");
+        let son = document.querySelector(".son");
+
+        // 点击son后，fa和document会依次触发它们对应的click事件
+        // 默认就是冒泡，即为false
+
+        // true代表使用捕获机制(很少使用捕获)
+
+        son.addEventListener(
+            "click",
+            function() {
+                alert("我是儿子");
+            },
+            true
+        );
+        fa.addEventListener(
+            "click",
+            function() {
+                alert("我是爸爸");
+            },
+            true
+        );
+        // document.addEventListener(
+        //     "click",
+        //     function() {
+        //         alert("我是爷爷");
+        //     },
+        //     true
+        // );
+        // dblclick双击
+        document.addEventListener(
+            "dblclick",
+            function() {
+                alert("我是爷爷2");
+            },
+            true
+        );
+
+        // btn.onclick = function() {} // 这种写法无法设置捕获
+    </script>
+</body>
+
+</html>

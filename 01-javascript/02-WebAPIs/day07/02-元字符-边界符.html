@@ -1,0 +1,36 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 15:17:59
+ * @LastEditTime: 2022-04-30 15:25:51
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day07\02-元字符-边界符.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 元字符，如规定只能输入26个英文小写字母，可以写成[a-z](等价于abcd...z)
+
+        // 边界符：表示位置，开有和结尾，必须用什么开头、用什么结尾
+
+        // ^ 以谁(写在^后面)开头，$ 以谁(写在$前面)结束
+        console.log(/^哈/.test("二哈")); // false
+        console.log(/^哈/.test("哈二")); // true
+        console.log(/^哈$/.test("哈哈")); // false，精确匹配：既以'哈'开头又以'哈'结束，则只有'哈'才为true
+        console.log(/^哈$/.test("哈")); // true
+        // ^$在一起就是精确匹配
+        console.log(/^二哈$/.test("二哈二哈")); // false
+        console.log(/^二哈$/.test("二哈")); // true
+    </script>
+</body>
+
+</html>

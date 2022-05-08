@@ -1,0 +1,77 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 22:40:01
+ * @LastEditTime: 2022-04-30 22:54:17
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\21、箭头函数使用.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="点击" />
+
+    <script type="text/javascript">
+        // 回调函数基本都可以用箭头函数代替
+
+        // 获取元素
+        let btn = document.querySelector("input");
+
+        // **使用箭头函数监听事件(重点)**
+        btn.addEventListener("click", () => {
+            btn.style.background = "red";
+            // 不能使用this.style.background = "red";
+            // 因为此时this为window
+        });
+
+        // window.setInterval(function() {
+        //     console.log("定时器");
+        // }, 1000);
+        // 使用箭头函数
+        window.setInterval(() => {
+            console.log("函数体");
+        }, 1000);
+
+        // 注意点：
+
+        // 1、箭头不存在预解析，所以'必须先定义再调用'
+        let fn = () => {
+            console.log("aaa");
+        };
+        fn();
+
+        // 2、箭头函数中，'不存在arguments'，所以只能用剩余参数
+        let fn1 = (...a) => {
+            console.log(a);
+        };
+        fn1(1, 2, 3);
+
+        // 3、箭头函数认为'不存在this'，箭头函数中的this指向的是'上级作用域'的this
+        // 如果涉及到this使用的时候，尽量不要使用箭头函数
+        let obj = {
+            uname: "阿飞",
+            age: 22,
+            fei: function() {
+                console.log(this); // obj
+                window.setInterval(() => {
+                    // 上级作用域的this为obj
+                    console.log(this); // obj，并非window，虽然是window调用的
+                }, 1000);
+            },
+        };
+        obj.fei();
+
+        let fn2 = () => {
+            console.log(this); // window
+        };
+        fn2();
+    </script>
+</body>
+
+</html>

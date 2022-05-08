@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+  </head>
+
+  <body>
+    <script>
+      $(function () {
+        // $.ajax() 函数，除了可以发起真正的 Ajax 数据请求之外，还能够发起 JSONP 数据请求
+        $.ajax({
+          url: "http://ajax.frontend.itheima.net:3006/api/jsonp?name=zs&age=20",
+          // 必须指定 datatype 为 jsonp
+          dataType: "jsonp",
+          // 发送到服务端的参数名称，默认值为 callback
+          jsonp: "callback",
+          // 自定义的回调函数名称，默认值为 jQueryxxx 格式
+          jsonpCallback: "abc",
+          success: function (res) {
+            console.log(res);
+          },
+        });
+      });
+      // 默认情况下若不指定回调函数名称，使用 jQuery 发起 JSONP 请求，会自动携带一个 callback=jQueryxxx 的参数，jQueryxxx 是随机生成的一个回调函数名称
+    </script>
+  </body>
+</html>

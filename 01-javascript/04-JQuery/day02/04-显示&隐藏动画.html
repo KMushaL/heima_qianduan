@@ -1,0 +1,63 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 20:09:15
+ * @LastEditTime: 2022-05-02 13:09:41
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \jQuery课程资料\jQuery-day02\04-源代码\01.knowledges\05-显示&隐藏动画.html
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-显示&隐藏动画</title>
+    <style>
+        body {
+            padding: 0 30px;
+        }
+        
+        p {
+            color: #333;
+        }
+        
+        .box {
+            width: 200px;
+            height: 100px;
+            margin-top: 20px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>显示&隐藏</h3>
+    <p>jQuery 中封装了元素显示/隐藏的快捷操作，并且支持动画形式的交互效果。</p>
+
+    <button class="show">显示</button>
+    <button class="hide">隐藏</button>
+    <button class="toggle">显示&隐藏</button>
+
+    <div class="box"></div>
+
+    <script src="../jquery/jquery-3.5.1.min.js"></script>
+
+    <script>
+        // 1.show方法（括号里为'动画'的持续时间(ms为单位)，若没有参数则直接显示或隐藏）
+        // 本质就是改行内样式
+        $(".show").click(function() {
+            $(".box").show(1000);
+        });
+        // 2.hide方法
+        $(".hide").click(function() {
+            $(".box").hide(1000);
+        });
+        // 3.toggle方法（切换显示或隐藏）
+        $(".toggle").click(function() {
+            $(".box").toggle(3000);
+        });
+    </script>
+</body>
+
+</html>

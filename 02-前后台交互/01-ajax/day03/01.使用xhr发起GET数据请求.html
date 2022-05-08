@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // XMLHttpRequest（简称 xhr）是浏览器提供的 Javascript 对象，通过它可以请求服务器上的数据资源
+      // 之前所学的 jQuery 中的 Ajax 函数，就是基于 xhr 对象封装出来的
+
+      // 下面将学习如何使用原生的xhr发送ajax请求
+
+      // 1. 创建 XHR 对象
+      var xhr = new XMLHttpRequest();
+
+      // 2. 调用 open 函数(指定请求方式(大小写都可以，但建议大写)和url)
+      xhr.open("GET", "http://www.liulongbin.top:3006/api/getbooks");
+
+      // 3. 调用 send 函数(发送ajax请求)
+      xhr.send();
+
+      // 4. 监听 onreadystatechange 事件(请求完成后的回调函数)
+      xhr.onreadystatechange = function () {
+        // 4.1 监听 xhr 对象的请求状态 readyState ；与服务器响应的状态 status
+        // 这是固定写法！！
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // 4.2 打印服务器响应回来的数据
+          console.log(xhr.responseText);
+
+          // 注意xhr.status(属于请求状态的一部分)与服务器响应的status(属于响应数据的一部分)不是同一个！！
+        }
+      };
+
+      // readyState 属性，用来表示当前 Ajax 请求所处的状态
+      // readyState各种取值(0~4)及意义见ppt
+    </script>
+  </body>
+</html>

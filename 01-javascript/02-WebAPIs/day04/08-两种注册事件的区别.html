@@ -1,0 +1,55 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-29 15:59:46
+ * @LastEditTime: 2022-04-29 15:59:46
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day04\09-两种注册事件的区别.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        let btn = document.querySelector("button");
+        // 1. 第一种：传统的 l0 on 注册
+        // 多次'相同'的事件，只执行最后一次(即会覆盖前面的事件)
+        // btn.onclick = function () {
+        //     alert('第一次')
+        // }
+        // btn.onclick = function () {
+        //     alert('第二次') // 只会执行它
+        // }
+        // 与事件解绑：使用null
+        // btn.onclick = null
+        // 都是冒泡阶段执行的
+
+        // 2. 第二种：addEventListener
+        // 不会覆盖
+        // 可以通过第三个参数确定冒泡或者捕获阶段执行(默认为冒泡)
+        btn.addEventListener("click", add);
+
+        function add() {
+            alert("第一次");
+        }
+
+        btn.addEventListener("click", function() {
+            alert("第二次");
+        });
+        // 必须使用removeEventListener(事件类型, 事件处理函数, 捕获或者冒泡阶段)解绑特定的事件
+        // btn.removeEventListener("click", add);
+
+        // **匿名函数无法被解绑**
+    </script>
+</body>
+
+</html>

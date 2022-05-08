@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(5 == "5"); //true，只看值
+        console.log(5 == undefined); //false
+        console.log(5 == null); //false
+        console.log(5 === "5"); //false，以后判断都用===和!==
+
+        console.log("pink" > "pin"); //true
+        console.log(1 === NaN); //false，NaN不等于任何东西，包括它本身
+        console.log(NaN === NaN); //false
+
+        console.log(0.1 + 0.2 === 0.3); //false，小数存在精度问题
+        console.log(3 > "2"); //true
+
+        let num = prompt("请输入一个数");
+        console.log(num > 3); //自动将num转换为number类型
+    </script>
+</body>
+
+</html>

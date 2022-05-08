@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 20:56:19
+ * @LastEditTime: 2022-04-30 20:56:19
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\16、参数默认值.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 参数默认值
+        function fn(uname = "阿飞", age) {
+            // 形参没有接受实参，那么形参是undefined
+            console.log(`我叫${uname}今年${age}岁`);
+        }
+
+        fn("赵云");
+        fn("赵云", 22);
+
+        // 求任意两个数的和
+        function getSum(num1 = 0, num2 = 0) {
+            let he = num1 + num2;
+            console.log(he);
+        }
+        getSum();
+        getSum(6, 3);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 20:10:42
+ * @LastEditTime: 2022-04-30 20:10:42
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\9、闭包.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 闭包是一种比较特殊的函数，使用闭包能够访问函数作用域中的变量
+        // 从代码形式上看闭包是一个作为返回值的函数
+        // 简而言之，闭包：一个作用域'有权访问'另外一个作用域的局部变量
+        // 作用：延申变量的使用范围
+
+        // 注意：
+        // 闭包本质仍是函数，只不是从函数内部返回的
+        // 闭包能够创建'外部可访问'的'隔离作用域'，'避免全局变量污染'
+        // 过度使用闭包可能造成内存泄漏
+
+        function fn() {
+            let num = 123;
+            let name = "wl";
+
+            // 因为只有子函数才能访问num，所以可以利用这一个性质
+            // 下面的代码就是闭包
+            return function fun() {
+                console.log(num); // 子函数必须要设法访问父函数的变量
+                // console.log(name); // fun函数若不访问fn的变量，则返回了也没用，外面也获取不到父函数的变量
+            };
+        }
+        let re = fn();
+        console.log(re); // fun函数
+        re(); // 123，只要调用就会访问到父函数的变量
+        // 执行完后，num未被销毁，所以容易出现内存泄漏
+
+        // 另一种写法：
+        function fn2(a) {
+            let num = 1234;
+            a(num); // a可以认为是fn2的子函数，并访问了父函数的num
+        }
+        // 传给fn2一个函数
+        fn2(function(n) {
+            console.log(n); // n就是num
+        });
+    </script>
+</body>
+
+</html>

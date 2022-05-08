@@ -1,0 +1,88 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 22:44:27
+ * @LastEditTime: 2022-04-28 22:51:37
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day03\08-时间对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 50px;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 在页面显示时间 -->
+    <div></div>
+
+    <script>
+        // let arr = []
+        // let arr = new Array()
+        // let obj = {}
+        // let obj = new Object()
+
+        // new 实例化 时间对象
+        // 小括号为空可以得到当前的时间
+        let date = new Date(); // Thu Apr 28 2022 22:45:06 GMT+0800 (中国标准时间)
+        console.log(date);
+        // 小括号里面写上时间，可以返回指定的时间
+        // let last = new Date("2021-8-29 18:30:00");
+        let last = new Date("2021-8-29"); // 默认0点0分0秒：Sun Aug 29 2021 00:00:00 GMT+0800 (中国标准时间)
+        console.log(last);
+
+        // 得到年月日
+        console.log(date.getFullYear());
+        console.log(date.getMonth() + 1); // 取值为0~11，所以必须要加一
+        console.log(date.getDate());
+        // 时分秒
+        console.log(date.getHours());
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+        // 星期几
+        console.log(date.getDay());
+
+        // 在页面显示时间
+        let arr = [
+            "星期日",
+            "星期一",
+            "星期二",
+            "星期三",
+            "星期四",
+            "星期五",
+            "星期六",
+        ];
+        let div = document.querySelector("div");
+        // '先调用'，就省去了1秒的空白期，因为调用时也算1秒
+        getTime();
+        setInterval(getTime, 1000);
+
+        function getTime() {
+            // 1. 实例化时间对象 一定写到定时器里面才可以额
+            let date = new Date();
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1;
+            let date1 = date.getDate();
+            let hour = date.getHours();
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+            let day = date.getDay();
+            div.innerHTML = `今天是： ${year}年${month}月${date1}日 ${hour}:${min}:${sec} ${arr[day]}`;
+        }
+    </script>
+</body>
+
+</html>

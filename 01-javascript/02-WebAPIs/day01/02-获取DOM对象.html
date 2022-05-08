@@ -1,0 +1,67 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 14:50:47
+ * @LastEditTime: 2022-04-28 15:29:44
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day01-dom\02-获取DOM对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是一个盒子</div>
+    <div>我是第二个盒子</div>
+    <div class="three">我是第三个盒子</div>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <span>就1个</span>
+
+    <script>
+        // querySelector根据css选择器获取dom元素，选择匹配的'第一个'元素，没找到则返回null
+        // 可以传递多种值
+        /* document.querySelector("div"); // 标签
+            document.querySelector(".one"); // 类
+            document.querySelector("#one"); // id */
+
+        // 1. js 获取 第一个元素
+        let div = document.querySelector("div"); // 获取第一个div
+        // let div = document.querySelector('.three')
+        console.log(div); // <div>我是一个盒子</div>
+
+        let li = document.querySelector("ul li:last-child"); // 获取第三个<li>
+        console.log(li);
+
+        // 2. querySelectorAll获取多个元素，返回NodeList伪数组
+        let lis = document.querySelectorAll("ul li");
+        console.log(lis); //NodeList(3) [li, li, li]
+
+        // 通过遍历的方式，获得里面的每一个dom对象（元素）
+        for (let i = 0; i < lis.length; i++) {
+            console.log(lis[i]);
+        }
+
+        //此时span也是NodeList伪数组，即使只有一个span
+        let span = document.querySelectorAll("span");
+        console.log(span);
+
+        //其他获取方式
+        // document.getElementById("nav"); // 通过id
+        // document.getElementsByTagName("div"); // 通过标签
+        // document.getElementsByClassName("w"); // 通过类名
+    </script>
+</body>
+
+</html>

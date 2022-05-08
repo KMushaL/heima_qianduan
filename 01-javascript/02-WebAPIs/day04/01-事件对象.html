@@ -1,0 +1,44 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-29 14:45:16
+ * @LastEditTime: 2022-04-29 14:45:16
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day04\01-事件对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        let btn = document.querySelector("button");
+        // 事件对象保存了事件触发时的相关信息，
+        // 如鼠标点击事件中，事件对象就保存了鼠标点在哪个位置等信息
+        // 在事件绑定的回调函数的'第一个'参数就是事件对象，一般命名为event、ev、e
+        btn.addEventListener("mouseenter", function(e) {
+            console.log(e);
+            // MouseEvent {isTrusted: true, screenX: 32, screenY: 103, clientX: 32, clientY: 32, …}
+
+            // 常用属性
+            // type：获取当前事件类型
+            // clientX/clientY：获取光标相对于'浏览器'可见窗口左上角的位置
+            // offsetX/offsetY：获取光标相对于当前'DOM元素'左上角的位置
+            // key：用户按下的键盘键的值，现在不提倡使用keyCode(见微博发布案例)
+            console.log("clientX:" + e.clientX, "clientY:" + e.clientY);
+            console.log("offsetX:" + e.offsetX, "offsetY:" + e.offsetY);
+
+            // pageX 和 pageY 相对于文档document('整个'页面)左上角的位置(常用于替代client，因为不受浏览器窗口大小影响)
+            console.log("pageX:" + e.pageX, "pageY:" + e.pageY);
+        });
+    </script>
+</body>
+
+</html>

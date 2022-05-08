@@ -1,0 +1,76 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 12:14:41
+ * @LastEditTime: 2022-04-30 13:42:39
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day06\15-本地存储使用.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 数据存储在用户浏览器中
+
+        // localStorage：
+        // 1. 生命周期永久生效，除非手动删除，否则关闭页面也会存在
+        // 2. 可以多窗口（页面）共享，即同一浏览器可以共享
+        // 3. 以键值对的形式存储使用
+
+        // 存储简单数据类型： localStorage.setItem('键', '值')
+        // localStorage.setItem('uname', 'pink老师')
+        // localStorage.setItem('age', 18)
+
+        // 获取数据
+        // localStorage.getItem('键')
+        // console.log(localStorage.getItem('uname'))
+
+        // 删除数据
+        // localStorage.removeItem('uname')
+
+        // 1. 存储复杂数据类型（引用数据类型）
+        let obj = {
+            uname: "刘德华",
+            age: 17,
+            address: "黑马程序员",
+        };
+        // console.log(JSON.stringify(obj))
+        //（1） 复杂数据类型'一定'要通过JSON.stringify'转换为'json'字符串'再进行存储（因为本地存储'只能存储字符串'）
+        localStorage.setItem("obj", JSON.stringify(obj));
+        // 存完后，F12可在application中的local storage看到(在其他页面也可以看到)
+
+        // AJAX
+        // JSON '属性'和值都是'双引号'进行包含
+        // let obj = {
+        //     "uname": "刘德华",
+        //     "age": "17",
+        //     "address": "黑马程序员"
+        // }
+
+        // （2） 取数据
+        // 获取过来的值是字符串，不是对象了没有办法直接使用，因此我们要首先把字符串转换为对象
+        // **可以使用 JSON.parse() 将json字符串转换为对象
+        // console.log(typeof localStorage.getItem('obj')); // string
+        console.log(JSON.parse(localStorage.getItem("obj")));
+
+        let object = {
+            age: 18,
+        };
+
+        // 本地存储只能存储字符串 所以我要转换  转换为JSON格式的字符串
+        localStorage.setItem("key", JSON.stringify(object));
+        //
+        // JSON.parse()
+        console.log(JSON.parse(localStorage.getItem("key")));
+    </script>
+</body>
+
+</html>

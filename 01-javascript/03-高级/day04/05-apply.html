@@ -1,0 +1,61 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 16:24:53
+ * @LastEditTime: 2022-05-01 16:24:53
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day04\8、apply.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // apply：函数.apply(this, [arg1, arg2,......])
+        // - 使用 `apply` 方法'调用'函数时，第1个参数为 `this` 指定的值
+        // - `apply` 方法第2个参数为'数组'，数组的单元值依次自动传入函数做为函数的参数
+        // 所以与call的唯一区别就是第二个参数为数组
+
+        function fn(a, b) {
+            console.log(this, a, b);
+        }
+        let obj = {
+            uname: "阿飞",
+        };
+        fn.apply(obj, [111, 222]);
+
+        obj = {
+            uname: "张三丰",
+            age: 22,
+            taiji: function() {
+                console.log(this);
+            },
+        };
+        let o = {
+            uname: "张无忌",
+            age: 16,
+        };
+        obj.taiji.apply(o);
+
+        // 获取数组最大值
+        // max方法不能直接传递数组
+        // Mconsole.log(ath.max(arr)); // Uncaught ReferenceError: Mconsole is not defined
+        let arr = [23, 66, 33, 19, 4, 7];
+        let re = Math.max.apply(null, arr); // 第一个参数this不重要
+        console.log(re); // 66
+
+        // **另外一种获取数组最大值的方法：展开数组**
+        // ... 作为rest参数用于：剩余参数，函数，解构赋值
+        // ... 除了可作为rest参数之外还可充当扩展(展开)运算符：数组，字符串，对象
+        console.log(...arr); // 23 66 33 19 4 7
+        re = Math.max(...arr);
+        console.log(re); // 66
+    </script>
+</body>
+
+</html>

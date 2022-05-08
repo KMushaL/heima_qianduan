@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-29 21:38:02
+ * @LastEditTime: 2022-04-29 21:41:48
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day05\06-client家族.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // 当浏览器窗口变化(可视区域)的时候触发的事件
+        window.addEventListener("resize", function() {
+            // console.log(111)
+            let w = document.documentElement.clientWidth;
+            // console.log(document.documentElement.clientWidth)
+            if (w >= 1920) {
+                document.body.style.backgroundColor = "pink";
+            } else if (w > 540) {
+                document.body.style.backgroundColor = "hotpink";
+            } else {
+                document.body.style.backgroundColor = "deeppink";
+            }
+        });
+    </script>
+</body>
+
+</html>

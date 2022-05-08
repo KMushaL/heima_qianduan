@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>18-触发事件事件处理</title>
+    <style>
+        body {
+            padding: 0 30px 40px;
+        }
+        
+        p {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>18-触发事件</h4>
+    <p>jQuery 中如何通过代码的方式触发绑定的事件</p>
+    <!-- 测试用标签 -->
+    <button class="btn">按钮</button>
+    <br />
+    <input type="text" class="text" />
+
+    <!-- 导入jQuery -->
+    <script src="../jquery/jquery-3.5.1.js"></script>
+
+    <script>
+        // 1. 直接触发
+        $(".btn").click(function() {
+            $(this).css("backgroundColor", "skyblue");
+        });
+        $(".btn").click(); // 不用手动点击即可触发点击事件
+
+        $(".text").on("input", function() {
+            console.log("input触发啦！");
+        });
+
+        // 2. trigger触发：trigger(事件名)
+        // 像input这种事件没有自己的直接触发方法，只能通过这种方法操纵
+        $(".text").trigger("input"); // 不用输入即可自动触发事件
+        $(".btn").trigger("click"); // 不用点击即可自动触发事件
+
+        // 3. 注册自定义事件（名字可以任意取）
+        $(".text").on("itheima-input", function() {
+            console.log("自定义事件触发！");
+        });
+
+        // 4. 触发自定义事件：'只'能通过trigger！
+        $(".text").trigger("itheima-input");
+    </script>
+</body>
+
+</html>

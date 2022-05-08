@@ -1,0 +1,67 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 17:05:39
+ * @LastEditTime: 2022-05-01 22:11:40
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day04\23、深拷贝.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let obj = {
+            uname: "张三丰",
+            age: 22,
+            sex: "男",
+            color: [
+                ["red", "blue", "yellow", "pink"]
+            ],
+            message: {
+                score: 99,
+                index: 6,
+            },
+        };
+
+        let newObj = {};
+
+        // 原理：递归
+        // 如果遇到obj[key]是复杂类型，再递归操作
+        function deep_copy(newObj, obj) {
+            for (let key in obj) {
+                if (obj[key] instanceof Array) {
+                    // obj[key] 是数组(根据浅拷贝中的例子，事实上数组不会受到影响)
+                    // 保证newObj[key]是数组
+
+                    newObj[key] = [];
+
+                    deep_copy(newObj[key], obj[key]);
+                } else if (obj[key] instanceof Object) {
+                    // obj[key] 是对象
+                    // 保证newObj[key]是对象
+
+                    newObj[key] = {};
+
+                    deep_copy(newObj[key], obj[key]);
+                } else {
+                    newObj[key] = obj[key];
+                }
+            }
+        }
+
+        deep_copy(newObj, obj);
+
+        obj.age = 23; // 不会改变newObj
+        obj.color = ["red"]; // 不会改变newObj
+        obj.message.index = 666; // 不会改变newObj
+        console.log(obj, newObj);
+    </script>
+</body>
+
+</html>

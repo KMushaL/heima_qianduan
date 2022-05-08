@@ -1,0 +1,46 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 19:51:27
+ * @LastEditTime: 2022-04-30 19:56:01
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\4、块级作用域.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 块级作用域属于'局部'作用域，用{}包起来的代码快，就是块级作用
+        // 代码块内部声明的变量外部将【有可能】无法被访问
+
+        // let 声明的变量会产生块作用域，var 不会产生块作用域
+        // const 声明的常量也会产生块作用域
+        // 不同代码块之间的变量无法互相访问
+        // 推荐使用 let 或 const
+
+        {
+            let n = 6; // let 声明的变量会产生块作用域
+            var n1 = 12; // var 不会产生块作用域
+        }
+        console.log(n); // 无法访问
+        console.log(n1); // 可以访问
+
+        if (true) {
+            let num = 123;
+        }
+        console.log(num); // 无法访问
+
+        for (let i = 0; i <= 0; i++) {
+            let m = 6;
+        }
+        console.log(m); // 无法访问
+    </script>
+</body>
+
+</html>

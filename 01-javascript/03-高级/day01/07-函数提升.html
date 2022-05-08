@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 20:40:56
+ * @LastEditTime: 2022-04-30 20:40:56
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\13、函数提成.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 函数提升与变量提升比较类似， 是指函数在声明之前即可被调用
+
+        // 任何一个作用域在执行之前都要先预解析到内存中
+
+        // 内存中已经存在了：
+        // function fn1 () {
+        // 	console.log('声明之前即被调用...');
+        // }
+
+        // 函数提升：
+        // 会把代码中'具有名字'的定义的函数提前解析，解析到当前作用域最前面
+        // 但是，'只定义，不调用'
+
+        // 函数提升优先于变量提升(类似于函数名和变量名相同的情况下，被视为函数)
+
+        fn1(); // 调用函数
+        function fn1() {
+            console.log("声明之前即被调用...");
+        }
+
+        (function fn2() {})(); // 不会被预解析，但是立即执行
+
+        var fn3 = function fun() {
+            console.log("函数表达式不存在提升现象...");
+        }; // 表达式函数不会预解析
+    </script>
+</body>
+
+</html>

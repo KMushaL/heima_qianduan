@@ -1,0 +1,63 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 16:24:53
+ * @LastEditTime: 2022-05-01 16:25:07
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day04\06-bind.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="点击产生验证码" />
+
+    <script type="text/javascript">
+        // bind：函数.bind(this, arg1, arg2,......);
+        // `bind` 方法并**不会调用函数**，而是'创建'一个指定了 `this` 值的'新函数'
+
+        function fn(a, b) {
+            console.log(this, a, b);
+        }
+
+        let obj = {
+            uname: "李寻欢",
+            age: 22,
+        };
+
+        // re就为一个指定了 `this` 值的'新函数'
+        let re = fn.bind(obj);
+        console.log(re);
+        /* fn(a, b) {
+                            console.log(this, a, b);
+                        } */
+        re(123, 456);
+        // {uname: '李寻欢', age: 22}age: 22uname: "李寻欢"[[Prototype]]: Object 123 456
+
+        // 或
+        fn.bind(obj, 123, 456)();
+        // 或
+        fn.bind(obj)(123, 456);
+
+        let btn = document.querySelector("input");
+        btn.addEventListener("click", function() {
+            // 禁用按钮
+            this.disabled = true;
+
+            // 开启定时器
+            setTimeout(
+                function() {
+                    this.disabled = false; // 若不绑定，此时的this不是button而是window
+                }.bind(this), //绑定到btn，为什么不用call和apply？因为只有bind不会调用
+                5000
+            );
+        });
+    </script>
+</body>
+
+</html>

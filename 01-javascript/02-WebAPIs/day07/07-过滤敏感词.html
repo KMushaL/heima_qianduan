@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 15:59:20
+ * @LastEditTime: 2022-04-30 16:08:31
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day07\06-过滤敏感词.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <div></div>
+
+    <script>
+        let btn = document.querySelector("button");
+        let textarea = document.querySelector("textarea");
+        let div = document.querySelector("div");
+
+        btn.addEventListener("click", function() {
+            // 过滤用户输入的内容，| 代表或
+            div.innerHTML = textarea.value.replace(/激情|基情/g, "**"); // 若输入了两个激情，不加g的话，只会替换第一个
+
+            // div.innerHTML = textarea.value
+        });
+    </script>
+</body>
+
+</html>

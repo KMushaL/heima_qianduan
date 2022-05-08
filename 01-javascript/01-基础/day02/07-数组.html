@@ -1,0 +1,45 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-27 23:53:49
+ * @LastEditTime: 2022-04-28 11:57:34
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\基础\day02\07-数组.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //数组可以存任何类型的元素
+        let arr = ["pink", "hotpink", "deeppink", 1, NaN];
+        let len = arr.push("blue", "green"); //可添加一个或多个元素到末尾，返回数组的新长度
+        console.log(arr);
+        console.log(len);
+
+        len = arr.unshift("black", "white"); //可添加一个或多个元素到开头，返回数组的新长度
+        console.log(arr);
+        console.log(len);
+
+        let delete_item = arr.pop(); //删除最后一个元素，并返回删除的元素
+        console.log(arr);
+        console.log(delete_item);
+        delete_item = arr.shift(); //删除开头第一个元素
+        console.log(arr);
+        console.log(delete_item);
+
+        // arr.splice(起始位置, 删除几个元素)，返回删除的元素
+        // 删除几个元素可不写，这时会默认一直删到末尾
+        console.log(arr.splice(1));
+        arr.splice(1);
+    </script>
+</body>
+
+</html>

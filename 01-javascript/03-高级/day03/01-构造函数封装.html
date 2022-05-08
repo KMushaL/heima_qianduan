@@ -1,0 +1,70 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 13:45:58
+ * @LastEditTime: 2022-05-01 14:11:53
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day03\11、封装.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 以往以普通对象（命名空间）形式封装的代码只是单纯把一系列的变量或函数组合到一起，
+        // 所有的数据变量都被用来共享（使用 this 访问）。
+        // 普通对象（命名空间）形式的封装
+        let beats = {
+            name: "狼",
+            setName: function(name) {
+                this.name = this.name;
+            },
+            getName() {
+                console.log(this.name);
+            },
+        };
+        beats.setName("熊");
+        beats.getName();
+
+        // 使用构造函数封装：当作模板
+        function Person() {
+            this.name = "佚名";
+            // 设置名字
+            this.setName = function(name) {
+                this.name = name;
+            };
+            // 读取名字
+            this.getName = () => {
+                console.log(this.name);
+            };
+        }
+
+        // 实例对象，获得了构造函数中封装的所有逻辑
+        let p1 = new Person();
+        p1.setName("小明");
+        console.log(p1.name); // 小明
+
+        // 实例对象
+        let p2 = new Person();
+        console.log(p2.name); // 佚名
+
+        p1.uname = "张飞飞"; // 可以创建新的属性，且其他实例化对象不受到影响
+        console.log(p1);
+        console.log(p2); // 无uname这个属性
+
+        let p3 = p2;
+        p3.uname = "张飞飞";
+        console.log(p2); // 有uname这个属性，因为是引用数据类型
+
+        // - 构造函数体现了面向对象的封装特性
+        // - 构造函数实例创建的对象彼此独立、互不影响
+        // - 命名空间式的封装无法保证数据的独立性
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 15:18:24
+ * @LastEditTime: 2022-05-01 15:19:38
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day03\22、数组追加方法.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // Array本身无求和的方法
+        console.log(Array.prototype);
+
+        let arr = [1, 2, 3];
+
+        // 写一个方法，让所有的数组都能够使用，调用这个方法就可以得到数组的和
+        // 方法里面的this调用者
+        Array.prototype.sum = function() {
+            // 定义变量
+            let he = 0;
+
+            // 遍历
+            for (let i = 0; i < this.length; i++) {
+                he = he + this[i];
+            }
+
+            // 返回
+            return he;
+        };
+        console.log(Array.prototype);
+
+        console.log(arr.sum());
+
+        let ary = [11, 22, 33];
+        console.log(ary.sum());
+    </script>
+</body>
+
+</html>

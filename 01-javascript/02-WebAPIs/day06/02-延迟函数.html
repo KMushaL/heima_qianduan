@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 10:53:55
+ * @LastEditTime: 2022-04-30 10:56:30
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day06\02-延迟函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button>解除定时器</button>
+
+    <script>
+        let btn = document.querySelector("button");
+
+        // setTimeout(回调函数，等待的毫秒数)是一个让代码延迟执行的函数
+        // 常常省略window
+        let timer = setTimeout(function() {
+            console.log(111);
+        }, 3000);
+        // setTimeout仅仅执行一次
+
+        btn.addEventListener("click", function() {
+            clearTimeout(timer); // 此时console.log(111);不会再执行
+        });
+    </script>
+</body>
+
+</html>

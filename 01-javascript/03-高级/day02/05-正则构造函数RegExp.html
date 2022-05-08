@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 11:13:25
+ * @LastEditTime: 2022-05-01 11:21:09
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day02\23、正则构造函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 字面量创建：
+        // let reg = /abc/;
+
+        // 构造函数创建：
+        let reg1 = new RegExp(/abc/);
+        console.log(reg1); // /abc/
+        console.log(reg1.test("abcd")); // true
+
+        // 或者使用 '' 定义正则
+        // 注意如果使用引号定义正则时，\d、\s、\w，需要多添加一个转义字符 \
+        let reg2 = new RegExp("\\tabc");
+        console.log(reg2); // /\tabc/
+
+        // RegExp静态属性 $1、$2、$3、... 获取正则分组单元
+        // $1~$9 属性值分别是第 1 个到第 9 个子模式所匹配到的内容。如果有超过 9 个以上的子模式，$1~$9 属性分别对应最后的 9 个子模式匹配结果
+        let s = "JavaScript, not JavaScript";
+        let r = /(Java)(Script)/gi;
+        let a = r.exec(s);
+        console.log(RegExp.$_); //返回字符串“JavaScript, not JavaScript”
+        console.log(RegExp["$`"]); //返回空字符串
+        console.log(RegExp["$'"]); //返回字符串“,not JavaScript”
+        console.log(RegExp["$&"]); //返回字符串“JavaScript”
+        console.log(RegExp["$+"]); //返回字符串“Script”
+
+        // 推荐使用字面量定义正则表达式，而不是 `RegExp` 构造函数
+    </script>
+</body>
+
+</html>

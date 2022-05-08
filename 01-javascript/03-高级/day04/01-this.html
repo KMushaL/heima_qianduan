@@ -1,0 +1,74 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 16:09:46
+ * @LastEditTime: 2022-05-01 16:09:46
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day04\3、this.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // console.log(this);
+        // this指向：
+
+        // 1、普通函数：window，调用者
+        // function fn () {
+        // 	console.log(this);
+        // }
+        // fn();
+
+        // 2、构造函数：实例化对象
+        // function Perosn (uname, age) {
+        // 	this.uname = uname;
+        // 	this.age = age;
+        // 	console.log(this);
+        // }
+        // let obj1 = new Perosn('阿飞', 22);
+        // console.log(obj1);
+        // let obj2 = new Perosn('李寻欢', 23);
+        // console.log(obj2);
+
+        // 3、方法：调用者
+        // let obj = {
+        // 	uname : '张三丰',
+        // 	age : 22,
+        // 	fei : function () {
+        // 		console.log(this);
+        // 	}
+        // }
+        // obj.fei();
+
+        // 4、事件处理函数：事件源
+        // document.addEventListener('click', function () {
+        // 	console.log(this);
+        // });
+
+        // 5、定时器：window、调用者
+        // window.setInterval(function () {
+        // 	console.log(this);
+        // }, 1000)
+
+        // 6、自调用函数：window、调用者
+        // ;(function () {
+        // 	console.log(this);
+        // })()
+
+        function fn() {
+            console.log(this); // document
+        }
+        document.addEventListener("click", fn);
+
+        // **普通函数**的调用方式决定了 `this` 的值，即【谁调用 `this` 的值指向谁】
+        // 普通函数没有明确调用者时 `this` 值为 `window`，严格模式下没有调用者时 `this` 的值为 `undefined`。
+    </script>
+</body>
+
+</html>

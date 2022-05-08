@@ -1,0 +1,67 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 15:17:59
+ * @LastEditTime: 2022-04-30 15:30:55
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day07\03-元字符-量词.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 量词：设定某个模式出现的次数n
+
+        // * 重复零次或多次 n >= 0
+        console.log("-------------*-------------");
+        console.log(/a*/.test(""));
+        console.log(/a*/.test("a"));
+        console.log(/a*/.test("aa"));
+        console.log(/a*/.test("aaaaaaaa"));
+        console.log(/a*/.test("b"));
+
+        // + 重复一次或多次 n >= 1
+        console.log("-------------+-------------");
+        console.log(/a+/.test(""));
+        console.log(/a+/.test("a"));
+        console.log(/a+/.test("aa"));
+        console.log(/a+/.test("aaaaaaaa"));
+        console.log(/a+/.test("b"));
+
+        // ? 出现零次或一次
+        console.log("-------------?-------------");
+        console.log(/^a?$/.test(""));
+        console.log(/^a?$/.test("a"));
+        console.log(/^a?$/.test("aa"));
+
+        // {n} '只'能出现n次(**符号之间不要加空格**)
+        console.log("-------------{n}-------------");
+        console.log(/^a{3}$/.test("aa"));
+        console.log(/^a{3}$/.test("aaa"));
+        console.log(/^a{3}$/.test("aaaa"));
+
+        // {n,} 出现次数>= n
+        console.log("-------------{n,}-------------");
+        console.log(/^a{3,}$/.test("aa"));
+        console.log(/^a{3,}$/.test("aaa"));
+        console.log(/^a{3,}$/.test("aaaa"));
+
+        // {n,m} 出现次数>= n且<= m
+        console.log("-------------{n,m}-------------");
+        console.log(/^a{3,6}$/.test("aa"));
+        console.log(/^a{3,6}$/.test("aaa"));
+        console.log(/^a{3,6}$/.test("aaaa"));
+        console.log(/^a{3,6}$/.test("aaaaa"));
+        console.log(/^a{3,6}$/.test("aaaaaaaa"));
+    </script>
+</body>
+
+</html>

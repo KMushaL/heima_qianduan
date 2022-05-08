@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      #angel {
+        position: absolute;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <img src="./angel.gif" alt="" id="angel" />
+
+    <script>
+      // 节流策略（throttle），顾名思义，可以'减少'一段时间内事件的'触发频率'
+      // 如没子弹时无论如何点击射击键也无法射出子弹
+      // 如鼠标连续不断地触发某事件（如点击），只在单位时间内'只触发一次'
+      // 如懒加载时要监听计算滚动条的位置，但不必每次滑动都触发，可以降低计算的频率，而不必去浪费 CPU 资源
+
+      // 节流阀为空，表示可以执行下次操作；不为空，表示不能执行下次操作。
+      // 当前操作执行完，'必须将节流阀重置为空'，表示可以执行下次操作了。
+      // 每次执行操作前，'必须先判断节流阀是否为空'。
+
+      $(function () {
+        // 1. 获取到图片
+        var angel = $("#angel");
+
+        // 步骤1. 定义节流阀
+        var timer = null;
+
+        // 2. 绑定 mousemove 事件
+        $(document).on("mousemove", function (e) {
+          // 步骤3：判断节流阀是否为空，如果不为空则return
+          if (timer) {
+            return;
+          }
+
+          // 3. 设置图片的位置
+          // 步骤2：开启延时器
+          timer = setTimeout(function () {
+            // 过16ms再执行
+            $(angel)
+              .css("top", e.pageY + "px")
+              .css("left", e.pageX + "px");
+            console.log("ok");
+
+            // 当设置了鼠标跟随效果后，清空 timer 节流阀，方便下次开启延时器
+            timer = null;
+          }, 16);
+        });
+      });
+
+      // 防抖：如果事件被频繁触发，防抖能保证只有'最有一次'触发生效！前面 N 多次的触发都会被忽略！
+      // 节流：如果事件被频繁触发，节流能够减少事件触发的频率，因此，节流是有'选择性地执行一部分事件'！
+    </script>
+  </body>
+</html>

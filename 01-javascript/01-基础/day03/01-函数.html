@@ -1,0 +1,82 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 10:49:55
+ * @LastEditTime: 2022-04-28 11:55:31
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\基础\day03\01-函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        sayHi(); //也可以放上面，但不推荐
+        function sayHi() {
+            document.write("你好~<br>");
+        }
+        sayHi();
+
+        //undefined加任何（除了字符串，此时会隐式转换变成字符串拼接）
+        //类型值结果都是NaN
+        document.write(undefined + 10); //NaN
+
+        //函数可以没有return，这种情况函数默认返回值为undefined
+        function getSum(a, b) {
+            a = a || 0;
+            b = b || 0;
+            document.write(a + b);
+            document.write("<br>");
+        }
+        getSum(2, 3); //尽量保持形参和实参个数一致
+        getSum(3);
+
+        function getSum2(a, b) {
+            a = a || 0;
+            b = b || 0;
+            return [a, b, a + b]; //返回多个值
+        }
+        let res = getSum2(2, 3);
+        console.log(res); //输出：(3), [2, 3, 5]，第一个为长度
+
+        //函数内部可以嵌套函数
+        function fn() {
+            let num = 10;
+            console.log(num);
+
+            function fn1() {
+                console.log(num);
+                let num2 = 20;
+            }
+            fn1();
+            // console.log(num2)  num2 is not defined
+        }
+        fn();
+
+        //实参个数大于形参个数
+        function fn2() {
+            //arguments为伪数组，只在函数内有效
+            //其比真数组少了一些pop()，push()等方法
+            console.log(arguments);
+            for (let i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }
+        fn2(1, 2, 3);
+
+        //函数形参可以赋默认值
+        function fn3(x = 0, y) {
+            console.log(x + y);
+        }
+        fn3(2); //返回结果为NaN，因为x=2，y为undefined，也就是说不会优先给没有默认赋值的变量y赋值
+    </script>
+</body>
+
+</html>

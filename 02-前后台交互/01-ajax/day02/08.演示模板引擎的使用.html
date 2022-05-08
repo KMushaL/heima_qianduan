@@ -1,0 +1,95 @@
+<!--
+ * @Author: lei 602289550@qq.com
+ * @Date: 2022-05-07 14:27:54
+ * @LastEditors: lei 602289550@qq.com
+ * @LastEditTime: 2022-05-07 19:43:47
+ * @FilePath: \黑马前端学习\javascript\05-前后台交互\day2（4-6小节）\08.演示模板引擎的使用.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <!-- 1. 导入模板引擎 -->
+    <!-- 模板引擎，顾名思义，它可以根据程序员指定的模板结构和数据，自动生成一个完整的HTML页面 -->
+    <!-- 在 window 全局，多一个函数，叫做 template('模板的Id', 需要渲染的数据对象) -->
+    <script src="./lib/template-web.js"></script>
+    <script src="./lib/jquery.js"></script>
+  </head>
+
+  <body>
+    <div id="container"></div>
+
+    <!-- 3. 定义模板 -->
+    <!-- 3.1 模板的 HTML 结构，'必须定义到 script 中' -->
+    <!-- 注意type要指定为"text/html" -->
+    <!-- 在 {{ }} 语法中，可以进行变量的输出、对象属性的输出、三元表达式输出、逻辑或输出、加减乘除等表达式输出 -->
+    <!-- {{@ value }}为原文输出，如果要输出的 value 值中，包含了 HTML 标签结构，则需要使用原文输出语法，才能保证 HTML 标签被正常渲染 -->
+    <!-- 
+      条件输出：
+      {{if value}} 按需输出的内容 {{/if}}，/if代表结束
+      {{if v1}} 按需输出的内容 {{else if v2}} 按需输出的内容 {{/if}}
+    -->
+    <!-- 
+       循环输出：
+       {{each arr}}
+          {{$index}} {{$value}}
+       {{/each}}
+       当前循环的索引使用 $index 进行访问，当前的循环项使用 $value 进行访问。
+       /each代表结束
+    -->
+    <!-- 
+      过滤器（本质就是一个 function 处理函数）：
+      使用：{{value | filterName}}，filter接收一个值后会返回一个新值
+      过滤器定义：template.defaults.imports.filterName = function(value){/*return处理的结果*/}
+     -->
+    <script type="text/html" id="tpl-user">
+      <h1>{{name}} ------ {{age}}</h1>
+      {{@ test}}
+
+      <div>
+        {{if flag === 0}} flag的值是0 {{else if flag === 1}} flag的值是1 {{/if}}
+      </div>
+
+      <ul>
+        {{each hobby}}
+        <li>索引是:{{$index}}，循环项是:{{$value}}</li>
+        {{/each}}
+      </ul>
+
+      <h3>{{regTime | dateFormat}}</h3>
+    </script>
+
+    <script>
+      // 定义处理时间的过滤器
+      template.defaults.imports.dateFormat = function (date) {
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        var d = date.getDate();
+
+        return y + "-" + m + "-" + d;
+      };
+
+      // 2. 定义需要渲染的数据
+      var data = {
+        name: "zs",
+        age: 20,
+        test: "<h3>测试原文输出</h3>",
+        flag: 1,
+        hobby: ["吃饭", "睡觉", "写代码"],
+        regTime: new Date(),
+      };
+
+      // 4. 调用 template 函数，返回一个字符串
+      // tpl-user不需要加#
+      var htmlStr = template("tpl-user", data);
+      console.log(htmlStr);
+
+      // 5. 渲染HTML结构
+      $("#container").html(htmlStr);
+    </script>
+  </body>
+</html>

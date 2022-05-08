@@ -1,0 +1,65 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 18:16:37
+ * @LastEditTime: 2022-04-28 18:18:34
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day02\02-关闭二维码.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .erweima {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+        }
+        
+        .erweima i {
+            position: absolute;
+            left: -13px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #ccc;
+            font-size: 12px;
+            line-height: 10px;
+            color: #ccc;
+            font-style: normal;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="erweima">
+        <img src="./images/code.png" alt="" />
+        <i class="close_btn">x</i>
+    </div>
+
+    <script>
+        // 1. 获取元素   事件源 i   关闭的 erweima
+        let close_btn = document.querySelector(".close_btn");
+        let erweima = document.querySelector(".erweima");
+
+        // 2. 事件监听
+        close_btn.addEventListener("click", function() {
+            // erweima 关闭  他是'隐藏'的，并非真正关闭
+            erweima.style.display = "none";
+        });
+    </script>
+</body>
+
+</html>

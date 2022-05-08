@@ -1,0 +1,68 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 14:54:02
+ * @LastEditTime: 2022-05-01 15:09:07
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day03\04-继承2.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 上一节的代码中是以命名空间的形式实现的继承，
+        // 事实上 JavaScript 中继承更常见的是借助构造函数来实现：
+
+        // 所有人
+        function Person() {
+            // 人的特征
+            this.arms = 2;
+            this.legs = 2;
+            this.eyes = 2;
+
+            // 人的行为
+            this.walk = function() {};
+            this.sing = function() {};
+            this.sleep = function() {};
+        }
+
+        // 封装中国人的行为特征
+        function Chinese() {
+            // 中国人的特征
+            this.skin = "yellow";
+            this.language = "中文";
+        }
+
+        // 封装日本人的行为特征
+        function Japanese() {
+            // 日本人的特征
+            this.skin = "yellow";
+            this.language = "日文";
+        }
+
+        // 中国人
+        Chinese.prototype = new Person();
+        Chinese.prototype.constructor = Chinese;
+        // 日本人
+        Japanese.prototype = new Person();
+        Japanese.prototype.constructor = Japanese;
+
+        // 二者的原型对象不是同一个地址，这就是比以命名空间的形式实现继承的好处
+        // （命名空间的形式实现继承的原型对象地址都相同，故只要有一个对象修改了数据，其它的都会跟着改）
+
+        // 更改原型对象中的属性（即公共属性）
+        Chinese.prototype.arms = 3;
+        console.log(Chinese.prototype);
+        console.log(Japanese.prototype); // 没有被影响
+    </script>
+</body>
+
+</html>

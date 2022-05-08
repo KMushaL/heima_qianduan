@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 使用 xhr 对象发起带参数的 GET 请求时，只需在调用 xhr.open 期间，为 URL 地址指定参数即可：
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "http://www.liulongbin.top:3006/api/getbooks?id=1");
+      xhr.send();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log(xhr.responseText);
+        }
+      };
+
+      // 这种在 URL 地址后面拼接的参数(id=1)，叫做查询字符串
+      // 格式：将英文的 ? 放在URL 的末尾(分隔符)，然后再加上 参数＝值 ，
+      // 想加上多个参数的话，使用 & 符号进行分隔。以这个形式，可以将想要发送给服务器的数据添加到 URL 中
+
+      // 带两个参数的 URL 地址
+      // http://www.liulongbin.top:3006/api/getbooks?id=1&bookname=西游记
+    </script>
+  </body>
+</html>

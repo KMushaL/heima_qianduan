@@ -1,0 +1,81 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 14:15:47
+ * @LastEditTime: 2022-05-01 14:40:09
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day03\13、原型对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function Person(age) {
+            this.age = age;
+
+            // this.sing = function () {
+            // 	console.log('唱歌');
+            // }
+        }
+
+        // 原型对象prototype(显式原型)：函数（任意函数）的一个属性，它的数据类型是'对象'
+        // 构造函数的prototype属性指向了一个对象，我们把这个对象称为原型对象或者原型
+        // 作用：把属性或方法（通常放方法）放进原型对象中，以共享属性和方法
+        //      以节省内存（在构造函数里面定义方法会浪费空间，因为每个实例化对象都会开辟这个方法的空间）
+
+        // 包含constructor和__proto__(隐式原型)
+        // constructor，用于'指回构造函数本身'
+        // __proto__，用于指向原型对象(prototype)
+        console.log(Person.prototype);
+        /* {constructor: ƒ}
+                constructor: ƒ Person(age)
+                [[Prototype]]: Object */
+
+        // 在构造函数的原型对象上添加方法;
+        Person.prototype.sing = function() {
+            console.log("唱歌");
+        };
+        // 在构造函数的原型对象上添加属性
+        Person.prototype.name = "小明";
+        console.log(Person.prototype);
+        /* {name: '小明', sing: ƒ, constructor: ƒ}
+                name: "小明"
+                sing: ƒ ()
+                constructor: ƒ Person(age)
+                [[Prototype]]: Object */
+
+        let obj1 = new Person(22);
+        let obj2 = new Person(23);
+        obj1.sing();
+
+        // 每一个对象也都有__proto__属性
+        console.log(obj1); // Person {age: 22}age: 22[[Prototype]]: Object
+        console.log(obj2);
+
+        console.log(obj1.constructor); // 虽然实例化对象没有constructor这个属性，但因为prototype有，所以能找到
+        /* ƒ Person(age) {
+        this.age = age;
+
+        // this.sing = function () {
+        // 	console.log('唱歌');
+        // }
+    } */
+
+        console.log(obj1.__proto__);
+        console.log(obj1.__proto__ === Person.prototype); // true
+        console.log(obj2.__proto__ === Person.prototype); // true
+
+        // 当访问对象的属性或方法时，先在当前实例对象是查找，然后再去原型对象查找(通过__proto__)，
+        // 并且原型对象被'所有实例共享'
+
+        // 结合构造函数原型的特征，实际开发中往往会将封装的‘功能函数’添加到原型对象中
+    </script>
+</body>
+
+</html>

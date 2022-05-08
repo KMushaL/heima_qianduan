@@ -1,0 +1,41 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 11:23:33
+ * @LastEditTime: 2022-04-30 11:23:33
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day06\08-5秒钟之后跳转页面.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="http://www.itcast.cn">支付成功，<span>5</span> 秒之后跳转首页</a>
+    <script>
+        let a = document.querySelector("a");
+        let num = 5;
+        let timer = setInterval(function() {
+            num--;
+            a.innerHTML = `支付成功，<span>${num}</span> 秒之后跳转首页`;
+            if (num === 0) {
+                clearInterval(timer);
+                // 跳转页面
+                location.href = "http://www.itcast.cn";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

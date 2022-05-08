@@ -1,0 +1,58 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 10:01:51
+ * @LastEditTime: 2022-05-01 10:12:43
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\4、解构赋值.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 解构赋值：解构赋值是一种快速为变量赋值的简洁语法，解开数据解构赋值给变量
+        // 数组解构
+        //  - 赋值运算符 `=` 左侧的 `[]` 用于批量声明变量，右侧数组的单元值将被赋值给左侧的变量
+        let [a, b, c, d, e, f] = ["张飞", "赵云", "关羽", "张辽", "许褚", "典韦"];
+        // - 变量的顺序对应数组单元值的位置依次进行赋值操作
+        console.log(a, b, c, d, e, f);
+
+        // - 变量的数量大于单元值数量时，多余的变量将被赋值为 `undefined`
+        let [one, two, three] = [1, 2];
+        console.log(one, two, three); // 1,2,undefined
+
+        // - 变量的数量小于单元值数量时
+        // let [fs, sd] = [1, 2, 3];
+        // console.log(fs, sd); // 1,2
+        // 可以通过 `...` 获取剩余单元值，但只能置于最末位
+        let [fs, ...sd] = [1, 2, 3];
+        console.log(fs, sd); // 1,[2,3]
+
+        // 按需取值，用 , 跳过不需要的值
+        let [, , a1, b1, , c1] = ["张飞", "赵云", "关羽", "张辽", "许褚", "典韦"];
+        console.log(a1, b1, c1); // "关羽", "张辽", "典韦
+
+        // 复杂情况
+        let [, , a2, b2, [, c2, d2]] = [
+            "张飞",
+            "赵云",
+            "关羽",
+            "张辽", ["林冲", "鲁智深", "武松", "宋老板"],
+        ];
+        console.log(a2, b2, c2, d2); // "关羽", 张辽", "鲁智深", "武松"
+
+        // - 允许初始化变量的默认值，且只有单元值为 `undefined` 时默认值才会生效
+        let [a3, b3, c3 = 3] = [1, 2];
+        console.log(a3, b3, c3);
+
+        // 对象
+    </script>
+</body>
+
+</html>

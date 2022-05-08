@@ -1,0 +1,50 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 10:50:21
+ * @LastEditTime: 2022-05-01 10:51:51
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day02\13、静态成员和实例成员.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 我们把在构造函数身上直接添加的成员，称为静态成员（静态属性静态方法）
+
+        // 构造函数内部为实例对象准备的成员，称为实例成员（实例属性和实例方法）
+
+        function Star(uname, age) {
+            // 下面的都是实例成员
+            this.uname = uname;
+            this.age = age;
+            this.sing = function() {
+                console.log("唱歌");
+            };
+        }
+
+        // 实例化对象
+        let obj = new Star("刘德华", 23);
+
+        // Star构造函数也属于对象，对象身上就可以添加属性和方法
+        // 下面的都是静态成员
+        Star.language = "汉语";
+        Star.skin = "黄皮肤";
+        Star.chi = function() {
+            console.log(123);
+        };
+
+        // 静态成员只能由构造函数访问
+        // 实例成员只能由实例对象访问
+        console.log(obj.language); // undefined
+        console.log(Star.uname); // undefined
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 22:53:10
+ * @LastEditTime: 2022-04-28 22:56:34
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day03\09-时间戳.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 时间戳是1970年1月1日0时0分0秒起至现在的'毫秒数'
+
+        // 1. 通过getTime()获得
+        let date = new Date();
+        console.log(date.getTime());
+
+        // 2. +new Date()，推荐
+        console.log(+new Date()); // 当前的时间戳
+        console.log(+new Date("2021-8-30 12:00:00")); // 指定时间的时间戳
+
+        // 3. 通过now()获得，只能得到当前的
+        console.log(Date.now());
+    </script>
+</body>
+
+</html>

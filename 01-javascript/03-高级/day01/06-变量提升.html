@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 20:29:16
+ * @LastEditTime: 2022-04-30 20:29:16
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\12、变量提升.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 任何一个作用域执行代码之前都要先预解析，即将代码提前解析到内存中，即变量提升和函数提升
+
+        // 变量提升是 JavaScript 中比较“奇怪”的现象，它允许在变量声明之前即被访问
+        // 变量提升：会把代码中声明的变量，提前解析到'当前作用域'最前面，
+        // 但是：'只定义，不赋值'，即var n;
+
+        // 内存：
+        // var n;
+
+        console.log(n); // undefined（因为已经预解析了，即n已经声明了但没赋值），不会报错
+        var n = 2; // 变量声明
+        // n = 2; // 这不叫变量声明，必须要有声明符
+
+        // - 变量在声明之前即被访问，变量的值为 `undefined`
+        // - `let` 声明的变量不存在变量提升，推荐使用 `let`【也有人认为let具有提升但是不赋值不能使用】
+        // - 变量提升出现在'相同'作用域当中
+        // - 实际开发中推荐先声明再访问变量
+    </script>
+</body>
+
+</html>

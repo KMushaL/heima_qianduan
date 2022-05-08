@@ -1,0 +1,52 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-29 20:20:15
+ * @LastEditTime: 2022-04-29 20:24:52
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day05\02-页面滚动事件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+        
+        div {
+            overflow: auto;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字 我里面可以放很多的文字
+    </div>
+
+    <script>
+        // 当页面进行滚动时触发的事件称为滚动事件
+        // 实际应用：如返回顶部、固定导航栏等
+
+        // 监听页面滚动（也可以用document）
+        window.addEventListener("scroll", function() {
+            console.log("window111");
+        });
+
+        let div = document.querySelector("div");
+        div.addEventListener("scroll", function() {
+            console.log("div111");
+        });
+    </script>
+</body>
+
+</html>

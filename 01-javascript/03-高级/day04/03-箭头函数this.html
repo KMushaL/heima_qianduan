@@ -1,0 +1,43 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-01 16:15:15
+ * @LastEditTime: 2022-05-01 16:15:15
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day04\5、箭头函数this.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // **箭头函数**中的 `this` 与普通函数完全不同，也不受调用方式的影响，事实上箭头函数中并不存在 `this` ！
+        // 箭头函数中访问的 `this` 不过是箭头函数'所在的上级作用域'的 `this` 变量
+
+        // document.addEventListener("click", function() {
+        //     window.setInterval(() => {
+        //         console.log(this); // document，非window
+        //     }, 1000);
+        // });
+
+        // 事件处理函数
+        document.addEventListener("click", () => {
+            console.log(this); // window，非document
+        });
+
+        // 构造函数：箭头函数不能当做构造函数的使用
+        let Person = (uname, age) => {
+            this.uname = uname;
+            this.age = age;
+        };
+        // Uncaught TypeError: Person is not a constructor
+        // new Person();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-05-02 19:44:43
+ * @LastEditTime: 2022-05-02 19:44:50
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\04-JQuery\day01\14-操纵value.html
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>14-操纵value</title>
+    <style>
+        body {
+            padding: 0 30px;
+        }
+        
+        p {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>14-操纵value</h3>
+    <p>jQuery 中封装了操纵value属性的方法，可以取值和赋值</p>
+
+    <!-- 测试用输入框 -->
+    <input class="text" type="text" />
+
+    <!-- 引入 jQuery -->
+    <script src="../jquery/jquery-3.5.1.js"></script>
+
+    <script>
+        // 与前面操作属性相同
+        // 1. 赋值
+        $(".text").val("黑马程序员！");
+
+        // 2. 取值
+        $(".text").blur(function() {
+            let value = $(this).val();
+            console.log("value:", value);
+        });
+    </script>
+</body>
+
+</html>

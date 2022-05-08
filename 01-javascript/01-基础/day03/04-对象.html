@@ -1,0 +1,97 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 11:59:38
+ * @LastEditTime: 2022-04-28 13:45:23
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\基础\day03\04-对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //对象声明{}
+        let person = {
+            //属性（属性'名'可以用""或''包裹，一般情况可省略，
+            //除非遇到特殊符号如空格、中横线等）
+            uname: "andy", //属性和值用:隔开，多个属性用,隔开
+            age: 18,
+            sex: "男",
+
+            //方法同理
+            sayHi: function() {
+                document.write("hi~");
+            },
+        };
+        console.log(person);
+        console.dir(person);
+
+        //访问属性得到值
+        console.log(person.age);
+        console.log(person["age"]);
+
+        //调用方法
+        person.sayHi();
+
+        //对象操作
+        //修改
+        person.age = 19; //或person['age'] = 19;
+
+        //添加新的数据
+        person.email = "123@qq.com"; //或person['email'] = "123@qq.com";
+        console.log(person.email);
+        person.sing = function() {};
+
+        //删除
+        delete person.email; //或delete person["email"];
+        console.log(person);
+
+        //遍历
+        for (let key in person) {
+            console.log(person[key]); //key为属性名
+        }
+
+        //数组对象
+        let obj = {
+            id: 1,
+        };
+
+        let arr = [person, obj];
+
+        let students = [{
+            name: "小明",
+            age: 18,
+            gender: "男",
+            hometown: "河北省",
+        }, {
+            name: "小红",
+            age: 19,
+            gender: "女",
+            hometown: "河南省",
+        }, {
+            name: "小刚",
+            age: 17,
+            gender: "男",
+            hometown: "山西省",
+        }, {
+            name: "小丽",
+            age: 18,
+            gender: "女",
+            hometown: "山东省",
+        }, ];
+
+        for (let i = 0; i < students.length; i++) {
+            console.log[students[i].name];
+        }
+    </script>
+</body>
+
+</html>

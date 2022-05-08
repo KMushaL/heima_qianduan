@@ -1,0 +1,106 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 18:21:51
+ * @LastEditTime: 2022-04-28 18:35:25
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day02\03-随机点名.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+        
+        .qs {
+            width: 450px;
+            height: 40px;
+            color: red;
+        }
+        
+        .btns {
+            text-align: center;
+        }
+        
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>随机点名</h2>
+    <div class="box">
+        <span>名字是：</span>
+        <div class="qs">这里显示姓名</div>
+    </div>
+    <div class="btns">
+        <button class="start">开始</button>
+        <button class="end">结束</button>
+    </div>
+
+    <script>
+        // 数据数组
+        let arr = ["马超", "黄忠", "赵云", "关羽", "张飞"];
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // 一定不要忘记加点  因为里面写css类选择器
+        let start = document.querySelector(".start");
+        let end = document.querySelector(".end");
+        let qs = document.querySelector(".qs");
+
+        // timer 要是全局变量
+        let timer = 0;
+        // random 要是全局变量
+        let random = 0;
+
+        // 2. 给开始按钮注册事件
+        start.addEventListener("click", function() {
+            // 随机抽数据：快速不断地抽
+            timer = setInterval(function() {
+                random = getRandom(0, arr.length - 1);
+                qs.innerHTML = arr[random];
+            }, 20);
+
+            // 如果到了最后一个，就禁用两个按钮，在这写是为了让数组保留一个值
+            if (arr.length === 1) {
+                start.disabled = true;
+                end.disabled = true;
+            }
+        });
+
+        // 3. 给结束按钮注册事件，停止计时器
+        end.addEventListener("click", function() {
+            clearInterval(timer);
+            arr.splice(random, 1);
+        });
+    </script>
+</body>
+
+</html>

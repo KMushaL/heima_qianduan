@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 22:36:57
+ * @LastEditTime: 2022-04-30 22:42:17
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\19、箭头函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 箭头函数(类似于lambda)
+        // 语法：接收变量 = (参数) => {}
+        // 注意该接收变量并非接收函数的返回值，而是充当与函数表达式一样的作用
+        // fn就代表这个函数
+        let fn = (a, b) => {
+            return a + b;
+        };
+
+        let re = fn(1, 2);
+        console.log(re);
+
+        // 注意：如果参数只有一个，那么可以省略小括号
+        // let fn1 = (a) => {
+        //     return a * a;
+        // };
+        // 格式化会自动加括号...
+        let fn1 = (a) => {
+            return a * a;
+        };
+        console.log(fn(3));
+
+        // 注意：如果函数体只有一行代码，那么可以省略大括号，
+        // 如果把打括号省略的话，会自动的返回结果，'不需要写return'
+        let fn2 = (a) => a * a;
+        console.log(fn(6));
+    </script>
+</body>
+
+</html>

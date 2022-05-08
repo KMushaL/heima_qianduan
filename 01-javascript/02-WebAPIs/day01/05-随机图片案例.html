@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 15:10:11
+ * @LastEditTime: 2022-04-28 15:10:20
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day01-dom\05-随机图片案例.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        img {
+            width: 500px;
+            height: 300px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <img src="./images/1.webp" alt="" />
+
+    <script>
+        // 1. 获取图片元素
+        let pic = document.querySelector("img");
+        // 2. 随机得到图片序号
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        let num = getRandom(1, 6);
+        // 3. 完成src 属性赋值
+        pic.src = `./images/${num}.webp`;
+    </script>
+</body>
+
+</html>

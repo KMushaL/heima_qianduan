@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-jQuery对象</title>
+</head>
+
+<body>
+    <h3>05-jQuery 对象</h3>
+    <p>jQuery 中利用选择器获取到的并非原生的 DOM对象，而是 jQuery 对象</p>
+
+    <h4>将原生 DOM 对象转换成 jQuery 对象后，便可以调用其实例中的方法了。</h4>
+    <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+        <li>jQuery</li>
+    </ul>
+
+    <script src="../jquery/jquery-3.5.1.min.js"></script>
+
+    <script>
+        // 1. 打印dom对象和jQ对象的区别
+        let li = document.querySelector("li");
+        console.log("li:", li); // 第一个li
+        // jQ对象声明建议用$开头
+        let $li = $("li");
+        console.log("$li:", $li); // 获得了所有li
+
+        // 2. jQ对象的方法 css()，在原型对象中
+        $li.css("backgroundColor", "hotpink");
+
+        // 3. 混着用(只是测试而已)（实际开发中不要混着用！）
+        // li.css('backgroundColor', 'skyblue') // 报错，因为dom对象根本没有css这个方法
+
+        // 4. dom对象转jQ对象：$(dom对象)
+        let $li2 = $(li);
+        $li2.css("backgroundColor", "skyblue"); // 覆盖了前面的hotpink
+    </script>
+</body>
+
+</html>

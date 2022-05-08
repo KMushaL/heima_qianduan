@@ -1,0 +1,43 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-28 15:07:00
+ * @LastEditTime: 2022-04-28 15:07:00
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day01-dom\03-修改元素内容.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>粉红色的回忆</div>
+
+    <script>
+        // 1. 获取标签(元素)
+        let box = document.querySelector("div");
+        // 2. 修改标签（元素）内容  box是对象   innerText 属性
+        // 对象.属性  = 值  '不能识别标签'
+        // box.innerText = '有点意思~'
+        // box.innerText = '<strong>有点意思~</strong>'
+
+        // 3. innerHTML解析标签  '能识别标签'
+        box.innerHTML = "<strong>有点意思~</strong>";
+    </script>
+</body>
+
+</html>

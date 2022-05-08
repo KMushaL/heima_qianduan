@@ -1,0 +1,30 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 19:59:14
+ * @LastEditTime: 2022-04-30 19:59:14
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\03-高级\day01\5、全局作用域.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        n = 2; // 只要不加声明就是全局变量
+        console.log(n);
+
+        function fn() {
+            console.log(n);
+        }
+
+        // 所以定义变量的时候一定要加声明语句，以防出现全局变量问题
+    </script>
+</body>
+
+</html>

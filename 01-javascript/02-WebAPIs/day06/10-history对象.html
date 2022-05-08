@@ -1,0 +1,40 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 11:39:44
+ * @LastEditTime: 2022-04-30 11:43:30
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day06\13-history对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="forward">前进</button>
+    <button class="back">后退</button>
+
+    <script>
+        // history对象用的比较少
+
+        let qianjin = document.querySelector(".forward");
+        let houtui = document.querySelector(".back");
+
+        qianjin.addEventListener("click", function() {
+            // 或者history.forward()
+            history.go(1); // 前进1个页面，如手动先跳转到baidu.com，再返回，再点击前进就会跳转到baidu.com
+        });
+        houtui.addEventListener("click", function() {
+            // 或者history.back()
+            history.go(-1); // 后退1个页面，如手动在url后面添加#...（不刷新页面），再点击后退
+        });
+    </script>
+</body>
+
+</html>

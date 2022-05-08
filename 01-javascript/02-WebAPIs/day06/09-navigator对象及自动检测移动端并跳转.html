@@ -1,0 +1,36 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-30 11:36:59
+ * @LastEditTime: 2022-04-30 11:38:48
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \黑马前端学习\javascript\WebAPIs\day06\12-自动检测移动端并跳转.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        // 检测 userAgent（浏览器信息）
+        // 立即执行函数
+        !(function() {
+            // 省略了window
+            const userAgent = navigator.userAgent;
+            // 验证是否为Android或iPhone
+            const android = userAgent.match(/(Android);?[\s\/]+([\d.]+)?/);
+            const iphone = userAgent.match(/(iPhone\sOS)\s([\d_]+)/);
+            // 如果是Android或iPhone，则跳转至移动站点
+            if (android || iphone) {
+                location.href = "http://m.itcast.cn";
+            }
+        })();
+    </script>
+</head>
+
+<body></body>
+
+</html>
