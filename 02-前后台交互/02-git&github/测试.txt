@@ -1,0 +1,7 @@
+后续传递项目到github上，只要git push即可
+
+SSH key 的作用：实现本地仓库和 Github 之间免登录的加密数据传输。
+SSH key 的好处：免登录身份认证、数据加密传输。
+SSH key 由两部分组成，分别是：
+① id_rsa（私钥文件，存放于客户端的电脑中即可）
+② id_rsa.pub（公钥文件，需要配置到 Github 中）
